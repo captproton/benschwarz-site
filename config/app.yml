@@ -1,0 +1,14 @@
+# Mysql
+# :db: mysql://user@localhost/db-name
+
+# Sqlite3
+# :db: sqlite3:///path/to/db-name.db'
+
+:development:
+  :db: 'sqlite3::memory:'
+
+:test: 
+  :db: 'sqlite3::memory:'
+    
+:production:
+  :db:

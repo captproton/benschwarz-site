@@ -1,0 +1,18 @@
+<h1>sinatra-shell</h1>
+
+<h2>Some pointers to get you running:</h2>
+
+<ul id="pointers">
+  <li>Edit views/index.erb to change this view</li>
+  <li>Edit views/layout.erb to change the html that wraps it</li>
+  <li>Edit views/not_found.erb for personalised 404 pages</li>
+  <li>Edit app/web.rb to make new actions</li>
+</ul>
+
+<h2>Configuration variables</h2>
+<dl>
+<% ::Application.config.each_pair do |k, v| %>
+  <dt><%= k %></dt>
+  <dd><%= v %></dd>
+<% end %>
+</dl>

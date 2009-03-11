@@ -1,0 +1,10 @@
+body { font-family: Helvetica, Arial; }
+#container { width: 760px; margin: 0 auto; }
+
+h1 { font-size: 3em; text-transform: lowercase; margin: 1em 0; }
+h2 { font-size: 1.3em; text-transform: lowercase; margin: 0.5em 0; }
+p { margin: 1em 0; }
+li { margin: 0.3em 0; }
+
+dt { font-style: italic; float: left; margin-right: 1em; clear: left; }
+dd { float: left; }

@@ -1,18 +1,41 @@
-<h1>sinatra-shell</h1>
+<header>
+  <h1><a href="/" rel="index">Ben Schwarz</a></h1>
+  <menu><a href="/writings" title="Articles that Ben Schwarz has written">Writings</a>, <a href="#" title="Ben Schwarz on Twitter">thoughts</a> and <a href="http://github.com/benschwarz" title="Ben Schwarz's open source projects">code</a></menu>
+</header>
 
-<h2>Some pointers to get you running:</h2>
-
-<ul id="pointers">
-  <li>Edit views/index.erb to change this view</li>
-  <li>Edit views/layout.erb to change the html that wraps it</li>
-  <li>Edit views/not_found.erb for personalised 404 pages</li>
-  <li>Edit app/web.rb to make new actions</li>
-</ul>
-
-<h2>Configuration variables</h2>
-<dl>
-<% ::Application.config.each_pair do |k, v| %>
-  <dt><%= k %></dt>
-  <dd><%= v %></dd>
-<% end %>
-</dl>
+<section id="content">
+  <article class="link delicious">
+    <header>
+      <h2><a href="#">Delve into UNIX process creation</a></h2>
+      <span class="attribution">source <a href="#">IBM</a></span>
+    </header>
+    <p class="description">It's important to understand how fork(2), pipe(2), and exec(2) work. I don’t want to hear anymore of this “fork is a hack” shit from any of you</p>
+    <aside class="posted">
+      <h3>Posted</h3>
+      <time datetime="2008-02-14">Wednesday, 12<span class="fakecaps">th</span> of  August, 2007</time>
+    </aside>
+  </article>
+  
+  <article class="link twitter">
+    <header>
+      <h2><a href="#">I discovered yesterday that Sinatra appli&shy;cations can be written to be used as Rack middleware. Awesome!</a></h2>
+      <span class="attribution">source <a href="#">benschwarz</a> on <a href="#">Twitter</a></span>
+    </header>
+    <aside class="posted">
+      <h3>Posted</h3>
+      <time datetime="2008-02-14">Wednesday, 12<span class="fakecaps">th</span> of  August, 2007</time>
+    </aside>
+  </article>
+  
+  <article class="media twitter">
+    <header>
+      <h2><a href="#">Panic Software’s Directors Room</a></h2>
+      <span class="attribution">source <a href="#">Tim Lucas</a> from <a href="#">toolmantim</a></span>
+      <img src="http://17.media.tumblr.com/l6xSmhBkDjv062m5WDDdeyslo1_400.jpg">
+    </header>
+    <aside class="posted">
+      <h3>Posted</h3>
+      <time datetime="2008-02-14">Wednesday, 12<span class="fakecaps">th</span> of  August, 2007</time>
+    </aside>
+  </article>
+</section>

@@ -24,8 +24,12 @@ article.media header { width: 760px; }
 #home article aside { position: absolute; right: 0; top: -0.7em; width: 125px; }
 #home article aside h3 { color: #8C8C8C; font-size: 0.7em; font-style: italic; font-weight: bold; }
 
-#home article.media aside { position: static; float: right; }
+#home article.media figure { margin-top: 3.7em; display: block; }
+#home article.media aside { right: 160px; top: 5em; }
 
 article aside time { line-height: 1.5em; font-size: 1.2em; color: #3F3F3F; }
 
 .fakecaps { font-size: 50%; text-transform: uppercase; font-variant: small-caps; vertical-align: text-top; }
+
+footer { margin: 6em 0 3em 0; display: block; background: 0 5px no-repeat url("/images/cc.png"); }
+footer p { font-size: 0.7em; margin-left: 25px; line-height: 2.5em; }

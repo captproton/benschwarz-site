@@ -2,8 +2,8 @@ body { font-family: Georgia; }
 body#home { background: 0 140px no-repeat url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAxCAMAAAAYyPIKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRFPz8/S0tL8/PzV1dXb29v29vbt7e3n5+fe3t7q6urw8PDY2Njz8/Ph4eH5+fnk5OT////M5R3wgAAABF0Uk5T/////////////////////wAlrZliAAAAh0lEQVR42tzUyw6EIAxG4SMieJvL+z+tmDibCWdRl3b7hZJA+wMM+bOm73/xq7mYwFhNmq0mrWcyYZxMGCYT2FWuU/QomZBVWFTOfn2hqrRDIu0mk02Ft0pRealknlX5xhuU+Ftv8T/1OajxeVvCc6274PuzR/dUd9vywDLEcqebVf18OwQYAFcZDyt4bOqNAAAAAElFTkSuQmCC); }
 #wrapper { margin: 140px 0 0 180px; }
 
-h1 { font-size: 2.5em; }
-h1 a { color: black; text-decoration: none; font-weight: normal; }
+h1 { font-size: 2.5em; font-weight: normal; }
+h1 a { color: black; text-decoration: none; }
 menu { font-size: 1.1em; color: #666; }
 menu a { color: #00A0C6; }
 
@@ -13,8 +13,8 @@ article { width: 760px; display: block; position: relative; margin-top: 5em; }
 article .description { width: 600px; font-family: Helvetica; margin-top: 1em; }
 
 article header { width: 615px; display: block; }
-article header h2 { display: inline; font-size: 1.9em; }
-article header h2 a { color: black; font-weight: normal; font-style: italic; }
+article header h2 { display: inline; font-size: 1.9em; font-weight: normal; font-style: italic; }
+article header h2 a { color: black; }
 
 article.media header { width: 760px; }
 

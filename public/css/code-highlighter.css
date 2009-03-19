@@ -1,0 +1,63 @@
+/* == Code Highlighting == */
+
+article pre {
+  font-size: 1.1em;
+  padding: 1em;
+  background: #eee;
+  overflow: auto; 
+	width: 140%;
+	margin: 1em 0 1em 0;
+}
+
+.article code {
+  color: #FFF;
+  background: #000;
+  font-family: Monaco, Courier, monotype;
+}
+
+
+/** RUBY / JAVASCRIPT **/
+#content code span.comment {
+	color: #6666FF;
+}
+
+#content code span.string {
+	color: #CC0000;
+}
+
+#content code span.brackets {
+	
+}
+
+#content code span.symbol {
+	color: #CC0000;
+}
+
+#content code span.keywords {
+	color: #0066FF;
+}
+
+#content code span.erb {
+	background: #33CC33;
+}
+
+/** HTML **/
+code.html span.tag {
+	color: #0066FF;
+}
+
+code.html span.attribute {
+	color: #CC0000;
+}
+
+code.html span.string {
+	color: #99FF00;
+}
+
+code.html span.comment {
+	color: #0066FF;
+}
+
+code.html span.doctype {
+	color: #D7FF80;
+}

@@ -5,14 +5,17 @@ module Application
     end
 
     get '/' do
+      @page_id = 'home'
       erb :index
     end
     
     get '/article' do
+      @page_id = 'article'
       erb :article
     end
     
     get '/about' do
+      @page_id = 'about'
       erb :about
     end
 

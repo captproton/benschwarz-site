@@ -11,6 +11,10 @@ module Application
     get '/article' do
       erb :article
     end
+    
+    get '/about' do
+      erb :about
+    end
 
     not_found do
       erb :not_found

@@ -9,7 +9,8 @@ small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td, menu, aside {
+table, caption, tbody, tfoot, thead, tr, th, td, 
+nav, aside, figure, header, article {
 	margin: 0;
 	padding: 0;
 	border: 0;

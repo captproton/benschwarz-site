@@ -11,7 +11,7 @@ h2 { font-size: 1.8em; font-weight: normal; margin: 1.8em 0 0 0; }
 nav { font-size: 1.1em; color: #666; }
 nav a { color: #00A0C6; }
 
-section { display: block; margin-top: 125px;}
+section { display: block; margin-top: 80px;}
 
 article { width: 760px; display: block; position: relative; margin-top: 5em; }
 article.single { position: static; }
@@ -40,7 +40,7 @@ article.single time { position: absolute; left: 20px; top: 159px; width: 125px; 
 #home article.media aside { right: 160px; top: 5em; }
 
 section#content { width: 440px; counter-reset: note; }
-section#content p { color: #333; position: relative; font-size: 0.9em; font-family: Helvetica, Arial; margin: 1em 0; line-height: 1.2em; }
+section#content p { color: #333; position: relative; font-size: 0.9em; font-family: Helvetica, Arial; margin: 1em 0; line-height: 1.5em; }
 section#content p mark { font-weight: bold; }
 section#content p aside { position: absolute; top: 0; right: -200px; color: #8C8C8C; font-size: 0.8em; width: 120px; font-style: italic; }
 

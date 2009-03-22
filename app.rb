@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'sinatra'
 require 'dm-core'
+require 'dm-timestamps'
+require 'dm-validations'
 
 # Require application dependencies here
 

@@ -6,9 +6,21 @@
 
 :development:
   :db: 'sqlite3::memory:'
+  :auth:
+    :username: 'admin'
+    :password: 'schwarz'
+  
 
 :test: 
   :db: 'sqlite3::memory:'
+  :auth:
+    :username: 'admin'
+    :password: 'schwarz'
+  
     
 :production:
   :db:
+  :auth:
+    :username: 'admin'
+    :password: 'schwarz'
+

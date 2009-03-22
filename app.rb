@@ -4,12 +4,13 @@ require 'dm-core'
 require 'dm-timestamps'
 require 'dm-validations'
 
-# Require application dependencies here
+# Require the application libs, core, etc
+%w(lib app).each{|path| $:.<< File.join(File.dirname(__FILE__), path) }
 
+# Libs
+Dir["#{File.dirname(__FILE__)}/lib/**/*.rb"].each &method(:require)
 
-# Require the application core
-$:.unshift File.join(File.dirname(__FILE__), 'app')
-
+# Core
 load 'base.rb'
 load 'models.rb'
 load 'helpers.rb'

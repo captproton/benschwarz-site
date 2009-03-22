@@ -5,7 +5,7 @@
 # :db: sqlite3:///path/to/db-name.db'
 
 :development:
-  :db: 'sqlite3::memory:'
+  :db: 'mysql://root@localhost/benschwarz-site'
   :auth:
     :username: 'admin'
     :password: 'schwarz'

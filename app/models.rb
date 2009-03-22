@@ -1,1 +1,1 @@
-Dir["#{File.dirname(__FILE__)}/helpers/*.rb"].each &method(:require)
+Dir["#{File.dirname(__FILE__)}/models/*.rb"].each &method(:require)

@@ -3,6 +3,8 @@ require 'sinatra'
 require 'dm-core'
 require 'dm-timestamps'
 require 'dm-validations'
+require 'open-uri'
+require 'json'
 
 # Require the application libs, core, etc
 %w(lib app).each{|path| $:.<< File.join(File.dirname(__FILE__), path) }

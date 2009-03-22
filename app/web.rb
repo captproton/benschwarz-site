@@ -6,6 +6,7 @@ module Application
 
     get '/' do
       @page_id = 'home'
+      @stream = Stream.get
       erb :index
     end
     

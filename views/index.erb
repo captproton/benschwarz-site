@@ -4,7 +4,10 @@
 </header>
 
 <section id="content">
-  <article class="link delicious">
+  <% for item in @stream %>
+    <%= partial('stream', item) %>
+  <% end %>
+  <!--><article class="link delicious">
     <header>
       <h2><a href="#">Delve into UNIX process creation</a></h2>
       <span class="attribution">source <a href="#">IBM</a></span>
@@ -39,5 +42,5 @@
       <h3>Posted</h3>
       <time datetime="2008-02-14">Wednesday, 12<span class="fakecaps">th</span> of  August, 2007</time>
     </aside>
-  </article>
+  </article>-->
 </section>

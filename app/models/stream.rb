@@ -12,6 +12,8 @@ class Stream
   
   before :valid?, :set_permalink
   
+  has 1, :source
+  
   private
   
   def set_permalink(context = :default)

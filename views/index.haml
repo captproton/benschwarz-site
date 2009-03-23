@@ -1,0 +1,52 @@
+%header
+  %h1
+    %a{:href => "/", :rel => "index"} Ben Schwarz
+  %nav
+    %a{:href => "/writings", :title => "Articles that Ben Schwarz has written"} Writings
+    %a{:href => "/about", :title => "About Ben Schwarz"} About
+
+%section#content
+  - for item in @stream
+    = partial 'stream', :item => item
+
+/ <section id="content">
+/   <% for item in @stream %>
+/     <%= haml_partial('tweet', item)  %>
+/   <% end %>
+/   <article class="link delicious">
+/     <header>
+/       <h2><a href="#">Delve into UNIX process creation</a></h2>
+/       <span class="attribution">source <a href="#">IBM</a></span>
+/     </header>
+/     <p class="description">It's important to understand how fork(2), pipe(2), and exec(2) work. I don’t want to hear anymore of this “fork is a hack” shit from any of you</p>
+/     <aside class="posted">
+/       <h3>Posted</h3>
+/       <time datetime="2008-02-14">Wednesday, 12<span class="fakecaps">th</span> of  August, 2007</time>
+/     </aside>
+/   </article>
+/   
+/   <article class="link twitter">
+/     <header>
+/       <h2><a href="#">I discovered yesterday that Sinatra appli&shy;cations can be written to be used as Rack middleware. Awesome!</a></h2>
+/       <span class="attribution">source <a href="#">benschwarz</a> on <a href="#">Twitter</a></span>
+/     </header>
+/     <aside class="posted">
+/       <h3>Posted</h3>
+/       <time datetime="2008-02-14">Wednesday, 12<span class="fakecaps">th</span> of  August, 2007</time>
+/     </aside>
+/   </article>
+/   
+/   <article class="media twitter">
+/     <header>
+/       <h2><a href="#">Panic Software’s Directors Room</a></h2>
+/       <span class="attribution">source <a href="#">Tim Lucas</a> from <a href="#">toolmantim</a></span>
+/     </header>
+/     <figure>
+/       <img src="http://17.media.tumblr.com/l6xSmhBkDjv062m5WDDdeyslo1_400.jpg">
+/     </figure>
+/     <aside class="posted">
+/       <h3>Posted</h3>
+/       <time datetime="2008-02-14">Wednesday, 12<span class="fakecaps">th</span> of  August, 2007</time>
+/     </aside>
+/   </article>
+/ </section>

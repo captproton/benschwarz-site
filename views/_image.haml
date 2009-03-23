@@ -1,0 +1,14 @@
+%article{:class => "media #{item["source"].downcase}"}
+  %header
+    %h2
+      %a{:href => item["link"]}
+        = item["y:title"]
+    %span.attribution
+      source
+      %a{:href => item["link"]} 
+        = item["source"]
+  %figure
+    %img{:src => item["media:content"]["url"]}
+  %aside.posted
+    %h3 Posted
+    %time{:date_time => item["pubDate"]} Wednesday, 12<span class="fakecaps">th</span> of  August, 2007

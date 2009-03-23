@@ -7,12 +7,12 @@ module Application
     get '/' do
       @page_id = 'home'
       @stream = Stream.get
-      erb :index
+      haml :index
     end
     
     get '/article' do
       @page_id = 'article'
-      erb :article
+      haml :article
     end
     
     get '/about' do

@@ -6,6 +6,8 @@ require 'dm-validations'
 require 'open-uri'
 require 'json'
 
+set :haml, {:format => :html5}
+
 # Require the application libs, core, etc
 %w(lib app).each{|path| $:.<< File.join(File.dirname(__FILE__), path) }
 

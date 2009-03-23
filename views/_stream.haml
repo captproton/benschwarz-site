@@ -1,0 +1,3 @@
+= partial "tweet", :item => item if item["source"].downcase == "twitter"
+= partial "link", :item => item if item["source"].downcase == "delicious"
+= partial "image", :item => item if item["source"].downcase == "flickr"

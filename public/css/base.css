@@ -40,9 +40,9 @@ article.single time { position: absolute; left: 20px; top: 159px; width: 125px; 
 #home article.media aside { right: 160px; top: 5em; }
 
 section#content { width: 440px; counter-reset: note; }
-section#content p { color: #333; position: relative; font-size: 0.9em; font-family: Helvetica, Arial; margin: 1em 0; line-height: 1.5em; }
+section#content p { text-indent: 2em; color: #333; position: relative; font-size: 0.9em; font-family: Helvetica, Arial; margin: 1em 0; line-height: 1.5em; }
 section#content p mark { font-weight: bold; }
-section#content p aside { position: absolute; top: 0; right: -200px; color: #8C8C8C; font-size: 0.8em; width: 120px; font-style: italic; }
+section#content p aside { text-indent: 0; position: absolute; top: 0; right: -200px; color: #8C8C8C; font-size: 0.8em; width: 120px; font-style: italic; }
 
 section#content p aside cite { display: block; margin-bottom: 2.5em; counter-increment: note; }
 section#content p aside cite:before { content: counter(note, lower-roman) ".  "; }

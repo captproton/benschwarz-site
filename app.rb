@@ -5,6 +5,7 @@ require 'dm-timestamps'
 require 'dm-validations'
 require 'open-uri'
 require 'json'
+require 'rdiscount'
 
 set :haml, {:format => :html5}
 

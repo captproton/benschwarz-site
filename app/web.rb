@@ -17,11 +17,11 @@ module Application
     
     get '/about' do
       @page_id = 'about'
-      erb :about
+      haml :about
     end
 
     not_found do
-      erb :not_found
+      haml :not_found
     end
   end
 end

@@ -6,6 +6,7 @@ require 'dm-validations'
 require 'open-uri'
 require 'json'
 require 'rdiscount'
+require 'smoke'
 
 set :haml, {:format => :html5}
 

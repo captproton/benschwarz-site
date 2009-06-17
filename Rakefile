@@ -1,19 +1,5 @@
 require File.join(File.dirname(__FILE__), "app")
 require 'spec/rake/spectask'
-Dir["#{File.dirname(__FILE__)}/lib/rake/*.rake"].each &method(:require)
-
-task :environment => "db:connect"
-
-namespace :db do
-  task :connect do
-    Application.new
-  end
-  
-  desc "Auto migrate the database"
-  task :migrate => :connect do
-    DataMapper.auto_migrate!
-  end
-end
 
 task :default => :spec
 

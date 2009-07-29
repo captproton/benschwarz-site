@@ -1,14 +1,50 @@
 %header
   %h1
-    %a{:href => "/", :rel => "index"} Ben Schwarz
-  %nav
-    %a{:href => "/writings", :title => "Articles that Ben Schwarz has written"} Writings
-    %a{:href => "/about", :title => "About Ben Schwarz"} About
-
+    %a{:href => "/"} Ben Schwarz
+    is a web architect hailing from Melbourne, Australia who has a strong focus on user experience and scalable content delivery. 
+    
 %section#content
-
-  = @stream.inspect
-  - for item in @stream
-    = haml :_tweet, :item => item if item[:source] == "twitter"
-    = haml :_link, :item => item if item[:source] == "delicious"
-    = haml :_image, :item => item if item[:source] == "flickr"
+  #recently
+    %h2 Recently
+    %ul
+      %li.post
+        %p
+          %a{:href => "#"} Why stopping ffolio development was one of the best things I could do for the project
+          %span.source
+            from
+            %a{:href => "#"} articles
+      %li
+        %h3 Smoke
+        %span.source
+          from
+          %a{:href => "#"} projects / github
+        %p A Ruby based DSL to query and reinterpret the web
+      %li
+        %img{:src => "http://farm4.static.flickr.com/3438/3743345092_26704f3d3f_m.jpg"}
+        %h3 How I roll
+        %span.source
+          from
+          %a{:href => "#"} photos / flickr
+        %p The contents of my crumpler, emptied on my desk then quickly neatened up when I realised there was a photo oppurtunity here
+  #links
+    %h2 Links
+    %ul
+      - for link in @links
+        %li
+          %a{:href => link.link}= link.description
+  #projects
+    %h2 Projects
+    %ul
+      - for project in @projects
+        %li
+          %a{:href => project[:url]}= project[:name]
+    %span.source
+      via
+      %a{:href => "http://github.com/benschwarz"} Github
+  #presentations
+    %h2 Presentations
+    %ul
+      - for presentation in @presentations
+        %li
+          %a{:href => presentation[:URL]}
+            %img{:src => presentation[:ThumbnailSmallURL]}

@@ -10,6 +10,8 @@ require 'stream'
 module Germanforblack
   class Application < Sinatra::Base
     set :haml, {:format => :html5}
+    set :public, File.join(File.dirname(__FILE__), 'public')
+    enable :static
     
     helpers do
       def partial(template, locals={})
@@ -19,7 +21,11 @@ module Germanforblack
     
     get '/' do
       @page_id = 'home'
-      @stream = Smoke[:stream].output
+      # @stream = Smoke[:stream].output
+      @links = Smoke[:delicious].output
+      @event = Smoke[:upcoming].output
+      @projects = Smoke[:github].output
+      @presentations = Smoke[:slideshare].output
       haml :index
     end
     

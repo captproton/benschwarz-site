@@ -1,13 +1,5 @@
-%article{:class => "link #{item["source"].downcase}"}
-  %header
-    %h2
-      %a{:href => item["link"]}
-        = item["y:title"]
-    %span.attribution
-      source
-      %a{:href => item["link"]} 
-        = item["source"]
-  %p.description= item["description"]
-  %aside.posted
-    %h3 Posted
-    %time{:date_time => item["pubDate"]} Wednesday, 12<span class="fakecaps">th</span> of  August, 2007
+%li
+  %a{:href => "#"} = link.title
+  %span.source
+    via
+    %a{:href => "#"} IBM

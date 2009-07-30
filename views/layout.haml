@@ -12,47 +12,9 @@
     %footer
       #padding
         %section
-          #about.vcard
-            %h4 About the author
-            %img{:src => "http://s3.amazonaws.com/twitter_production/profile_images/280124623/Photo-69_normal.png"}
-            %p
-              %span.fn Ben Schwarz
-              is web architect hailing from
-              %span.locality Melbourne
-              who has a strong focus on user experience and scalable content delivery.
-              %br
-              These interests overflow into his programming and development work that he has conducted over the past 9 years.
-              %span.source
-                contact via 
-                %a{:href => "#"} email
-          #events.vevent
-            %h4 Upcoming events
-            %p
-              %a{:href => @event[:ticket_url], :class => "url summary"} 
-                = "#{@event[:name]} - #{@event[:venue_city]}, #{@event[:venue_country_name]}"
-              %span.description
-                = @event[:description]
-              %span.source
-                from
-                %a{:href => "#"} upcoming
-          
-          #elsewhere
-            %h4 Elsewhere
-            %ul
-              %li
-                %a{:href => "#"} Twitter
-              %li
-                %a{:href => "#"} Github
-              %li
-                %a{:href => "#"} Flickr
-              %li
-                %a{:href => "#"} Slideshare
-              %li
-                %a{:href => "#"} Delicious
-              %li
-                %a{:href => "#"} Upcoming
-              %li
-                %a{:href => "#"} Last.fm
+          = partial "about", :about => @twitter
+          = partial "event", :event => @event
+          = partial "elsewhere"
 
           #cc
             %h4 Creative commons licence

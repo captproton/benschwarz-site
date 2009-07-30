@@ -1,16 +1,17 @@
 require 'digest/sha1'
 
-Smoke.feed(:twitter) do
-  url "http://twitter.com/statuses/user_timeline/14431882.rss"
-  emit do
-    insert :source, "twitter"
-    discard :title, /(@|#)/
-    
-    transform :title, :description do |t|
-      t.gsub("benschwarz: ", '')
-    end
-  end
-end
+# Twitter status updates
+# Smoke.feed(:twitter) do
+#   url "http://twitter.com/statuses/user_timeline/14431882.rss"
+#   emit do
+#     insert :source, "twitter"
+#     discard :title, /(@|#)/
+#     
+#     transform :title, :description do |t|
+#       t.gsub("benschwarz: ", '')
+#     end
+#   end
+# end
 
 Smoke.data(:flickr) do
   url "http://api.flickr.com/services/feeds/photos_public.gne?id=36821533@N00&lang=en-us&format=json&nojsoncallback=1"
@@ -20,6 +21,10 @@ Smoke.data(:flickr) do
     insert :source, self.name
     rename :published => :created_at
   end
+end
+
+Smoke.data(:twitter) do
+  url "http://twitter.com/users/show.json?screen_name=benschwarz"
 end
 
 Smoke.feed(:delicious) do

@@ -21,11 +21,13 @@ module Germanforblack
     
     get '/' do
       @page_id = 'home'
-      # @stream = Smoke[:stream].output
+      
       @links = Smoke[:delicious].output
       @event = Smoke[:upcoming].output
       @projects = Smoke[:github].output
       @presentations = Smoke[:slideshare].output
+      @twitter = Smoke[:twitter].output
+      
       haml :index
     end
     

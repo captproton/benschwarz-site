@@ -1,18 +1,5 @@
 require 'digest/sha1'
 
-# Twitter status updates
-# Smoke.feed(:twitter) do
-#   url "http://twitter.com/statuses/user_timeline/14431882.rss"
-#   emit do
-#     insert :source, "twitter"
-#     discard :title, /(@|#)/
-#     
-#     transform :title, :description do |t|
-#       t.gsub("benschwarz: ", '')
-#     end
-#   end
-# end
-
 Smoke.data(:flickr) do
   url "http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=1e99cd67056e382c382826fb95436782&user_id=36821533%40N00&tags=germanforblack-site&format=json&nojsoncallback=1&extras=url_s", :type => :json
   path :photos, :photo

@@ -7,6 +7,13 @@
   #recently
     %h2 Recently
     %ul
+      - for article in @articles
+        %li.post
+          %p
+            %a{:href => article_path(article)}= article.title
+            %span.source
+              from
+              %a{:href => "/articles"} articles
       %li.post
         %p
           %a{:href => "#"} Why stopping ffolio development was one of the best things I could do for the project

@@ -1,11 +1,15 @@
+__DIR__ = File.dirname(__FILE__)
+
 require 'rubygems'
 require 'sinatra'
 require 'haml'
 require 'rdiscount'
-gem 'smoke', '>= 0.3.9'
+gem 'smoke', '>= 0.3.10'
 require 'smoke'
 
-require 'stream'
+require "#{__DIR__}/lib/stream"
+require "#{__DIR__}/lib/article"
+Article.path = "#{__DIR__}/articles"
 
 module Germanforblack
   class Application < Sinatra::Base
@@ -17,16 +21,21 @@ module Germanforblack
       def partial(template, locals={})
         haml("_#{template}".to_sym, :locals => locals, :layout => false)
       end
+      
+      def article_path(article)
+        "/articles/#{article.slug}"
+      end
     end
     
     get '/' do
       @page_id = 'home'
       
       @links = Smoke[:delicious].output
-      @event = Smoke[:upcoming].output
+      @event = Smoke[:upcoming].output 
       @projects = Smoke[:github].output
       @presentations = Smoke[:slideshare].output
       @twitter = Smoke[:twitter].output
+      @articles = Article.all.sort
       
       haml :index
     end
@@ -36,9 +45,9 @@ module Germanforblack
       haml :article
     end
     
-    get '/about' do
-      @page_id = 'about'
-      haml :about
+    get '/articles/:id' do
+      @article = Article[params[:id]] || raise(Sinatra::NotFound)
+      haml :article
     end
 
     not_found do

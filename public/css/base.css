@@ -9,14 +9,14 @@ h1 a { background-color: #FF3300; text-decoration: underline; color: white; }
 h2 { color: #FF3300; font-size: 1.1em; font-weight: normal; margin-bottom: 30px;}
 
 section, footer { display: block; }
-section#content { position: relative; min-height: 500px; margin-left: 40px; line-height: 1.5em; font-size: 0.8em; }
+section#content { overflow: hidden; margin: 0 0 40px 40px; line-height: 1.5em; font-size: 0.8em; }
 
-section#content #recently { position: absolute; width: 340px; }
+section#content #recently { float: left; width: 340px; margin-right: 20px; }
 section#content #recently li,
 section#content #links li { margin-bottom: 1.5em; }
-section#content #links { position: absolute; margin-left: 362px; width: 220px; }
-section#content #projects { position: absolute; margin-left: 595px; width: 100px; }
-section#content #presentations { position: absolute; margin-left: 720px; width: 160px; }
+section#content #links { float: left; width: 220px; margin-right: 20px; }
+section#content #projects { float: left; width: 100px; margin-right: 20px; }
+section#content #presentations { float: left; width: 160px; margin-right: 20px; }
 section#content #projects ul { margin-left: -0.7em; margin-bottom: 1.5em; }
 section#content #projects li:before { content: "\00BB \0020"; color: #666; }
 section#content #projects li a { color: #FF3300; }
@@ -31,21 +31,22 @@ section#content li,
 section#content a,
 section#content p { color: #333333; }
 
-footer { background-color: black; line-height: 1.1em; }
-footer #padding { width: 960px; margin: 0 auto; }
-footer section { margin-left: 40px;  position: relative; padding-top: 20px; min-height: 250px; }
-footer h4 { color: #FF3300; font-weight: normal; font-style: italic; text-transform: lowercase; font-size: 1.2em; margin-bottom: 25px; }
-footer p, 
-footer li { color: #CCC; font-size: 0.8em; }
-footer a { color: #FF3300; }
+section#footer { line-height: 1.1em; background-color: black; overflow: hidden; padding-bottom: 25px; }
+section#footer section { width: 920px; margin: 0 auto; padding: 20px 0px 0px 40px; }
+section#footer h4 { color: #FF3300; font-weight: normal; font-style: italic; text-transform: lowercase; font-size: 1.2em; margin-bottom: 25px; }
+section#footer p, 
+section#footer li { color: #CCC; font-size: 0.8em; }
+section#footer a { color: #FF3300; }
 
-footer #about { width: 340px; position: absolute; }
-footer #about img { float: left; margin: 0 0 4px -5px; }
-footer #events { margin-left: 360px; width: 220px; position: absolute; }
-footer #elsewhere { position: absolute; margin-left: 600px; }
-footer #elsewhere ul { margin-left: -0.5em; }
-footer #elsewhere li:before { content: "\00BB \0020"; color: #666; }
-footer #cc { position: absolute; width: 160px; margin-left: 715px; }
-footer #cc h4 { background: no-repeat url("/images/cc.png"); text-indent: -9999px; height: 26px; margin-bottom: 18px; }
+section#footer div { margin: 0px 20px 0px 0px; }
 
-footer span.source { color: #666; }
+section#footer #about { width: 340px; float: left; }
+section#footer #about img { float: left; margin: 0 0 4px -5px; }
+section#footer #events { width: 220px; float: left; }
+section#footer #elsewhere { float: left; }
+section#footer #elsewhere ul { margin-left: -0.5em; }
+section#footer #elsewhere li:before { content: "\00BB \0020"; color: #666; }
+section#footer #cc { width: 160px; float: left; }
+section#footer #cc h4 { background: no-repeat url("/images/cc.png"); text-indent: -9999px; height: 26px; margin-bottom: 18px; }
+
+section#footer span.source { color: #666; }

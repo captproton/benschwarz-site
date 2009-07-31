@@ -6,18 +6,13 @@
     %link{:rel => "stylesheet", :href => "/css/base.css", :type => "text/css", :media => "screen"}
     %link{:rel => "openid.server", :href => "http://www.myopenid.com/server"}
     %link{:rel => "openid.delegate", :href => "http://benschwarz.myopenid.com/"}
+    %meta{"http-equiv" => 'Content-Type', :content => 'text/html; charset=utf-8' }
   %body{:id => @page_id}
     #wrapper
       = yield
-    %footer
-      #padding
-        %section
-          = partial "about", :about => @twitter
-          = partial "event", :event => @event
-          = partial "elsewhere"
-
-          #cc
-            %h4 Creative commons licence
-            %p 
-              All content herein by Ben Schwarz unless otherwise noted. Licence: Creative Commons, by
-              %a{:href => "http://creativecommons.org/licenses/by-nc-sa/3.0/", :rel => "license"} nc-sa
+    %section#footer
+      %section
+        = partial "about", :about => @twitter
+        = partial "event", :event => @event
+        = partial "elsewhere"
+        = partial "cc"

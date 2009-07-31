@@ -8,27 +8,8 @@
       %span.attribution
         posted by Ben Schwarz on
         %time{:datetime => @article.published.xmlschema}
-        = "#{@article.published.strftime('%B')} #{@article.published.strftime('%d')}"
-        %span.fakecaps= "#{ordinalize(@article.published.strftime('%d'))},"
-        = @article.published.strftime('%Y')
+          = "#{@article.published.strftime('%B')} #{@article.published.strftime('%d')}"
+          %span.fakecaps= "#{ordinalize(@article.published.strftime('%d'))},"
+          = @article.published.strftime('%Y')
   %section#content
-    %p 
-      Lorem ipsum dolor sit amet, 
-      %mark{:ref => "note-1"} consectetur adipiscing elit.
-      Mauris congue varius dolor. Nunc molestie. Integer volutpat ultrices ipsum. Ut rutrum condimentum lectus. Proin ac enim. Ut pellentesque tempor velit. Duis porta convallis sem. Nullam ultricies, nisl eget mattis scelerisque, quam nulla aliquam leo, bibendum ullamcorper nisl ipsum sed orci. Nulla facilisi. Mauris vitae velit. Cras nibh. Nullam commodo, risus quis convallis dapibus, purus orci lobortis nibh, id scelerisque sem risus at lorem. Curabitur imperdiet lorem quis est. 
-      %mark{:ref => "note-2"}
-        Praesent ac tellus nec augue tristique fermentum.
-      Ut mauris enim, dictum at, placerat at, feugiat non, augue.
-      %aside
-        %cite#note-1 I like to leave notes about my articles all over the place
-        %cite#note-2 I was being a bit silly
-      %p 
-        %pre
-          %code.javascript
-            $('#thing').click(function(e) {
-            var target = $(e.target);
-
-            if (target.hasClass('quit') return doQuitStuff();
-            if (target.hasClass('edit') return doEditStuff();
-            // and so on...
-            });
+    = article_html(@article)

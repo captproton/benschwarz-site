@@ -58,6 +58,11 @@ module Germanforblack
           end
         end
       end
+      
+      def article_html(article)
+        @article = article
+        haml(article.template, :layout => false)
+      end
     end
     
     before do

@@ -50,3 +50,11 @@ section#footer #cc { width: 160px; float: left; }
 section#footer #cc h4 { background: no-repeat url("/images/cc.png"); text-indent: -9999px; height: 26px; margin-bottom: 18px; }
 
 section#footer span.source { color: #666; }
+
+article { position: relative; display: block; }
+article h1 { display: inline; }
+article span.attribution { color: #ccc; font-size: 0.8em; font-style: italic; }
+article span.attribution time { color: #999; }
+article section#content { width: 580px; margin-top: 120px; }
+
+article aside { position: absolute; left: 645px; top: 181px; width: 160px; font-size: 0.7em; color: #999; line-height: 1.6em; }

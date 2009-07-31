@@ -1,0 +1,9 @@
+- for image in images
+  %li.image
+    %a{:href => flickr_url(image)}
+      %img{:src => image[:url_s]}
+    %h3
+      %a{:href => flickr_url(image)}= image[:title]
+    %span.source
+      from
+      %a{:href => flickr_url(image)} photos / flickr

@@ -7,38 +7,10 @@
   #recently
     %h2 Recently
     %ul
-      - for article in @articles
-        %li.post
-          %p
-            %a{:href => article_path(article)}= article.title
-            %span.source
-              from
-              %a{:href => "/articles"} articles
-      %li.post
-        %p
-          %a{:href => "#"} Why stopping ffolio development was one of the best things I could do for the project
-          %span.source
-            from
-            %a{:href => "#"} articles
-      %li
-        %h3 Smoke
-        %span.source
-          from
-          %a{:href => "#"} projects / github
-        %p A Ruby based DSL to query and reinterpret the web
-      %li
-        %img{:src => "http://farm4.static.flickr.com/3438/3743345092_26704f3d3f_m.jpg"}
-        %h3 How I roll
-        %span.source
-          from
-          %a{:href => "#"} photos / flickr
-        %p The contents of my crumpler, emptied on my desk then quickly neatened up when I realised there was a photo oppurtunity here
-  #links
-    %h2 Links
-    %ul
-      - for link in @links
-        %li
-          %a{:href => link.link}= link.description
+      / partial "articles", :articles => @articles
+      = partial "images", :images => @images
+  
+  = partial "links", :links => @links
   #projects
     %h2 Projects
     %ul

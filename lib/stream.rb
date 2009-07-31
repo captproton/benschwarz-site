@@ -14,13 +14,8 @@ require 'digest/sha1'
 # end
 
 Smoke.data(:flickr) do
-  url "http://api.flickr.com/services/feeds/photos_public.gne?id=36821533@N00&lang=en-us&format=json&nojsoncallback=1"
-  path :items
-  
-  emit do
-    insert :source, self.name
-    rename :published => :created_at
-  end
+  url "http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=1e99cd67056e382c382826fb95436782&user_id=36821533%40N00&tags=germanforblack-site&format=json&nojsoncallback=1&extras=url_s", :type => :json
+  path :photos, :photo
 end
 
 Smoke.data(:twitter) do

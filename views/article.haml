@@ -3,15 +3,14 @@
     %blockquote
       %h1
         %span &#8220;
-        Fucking massive titles often look pretty awesome in Garamond, or perhaps even Georgia
+        = @article.title
         %span &#8221;
       %span.attribution
-        posted by
-        %a{:href => "/about", :rel => "author"} Ben Schwarz
-  %time{:datetime => "2008-02-14"} 
-    Wednesday, 12
-    %span.fakecaps th
-    of  August, 2007
+        posted by Ben Schwarz on
+        %time{:datetime => @article.published.xmlschema}
+        = "#{@article.published.strftime('%B')} #{@article.published.strftime('%d')}"
+        %span.fakecaps= "#{ordinalize(@article.published.strftime('%d'))},"
+        = @article.published.strftime('%Y')
   %section#content
     %p 
       Lorem ipsum dolor sit amet, 

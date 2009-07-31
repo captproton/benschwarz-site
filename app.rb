@@ -45,16 +45,32 @@ module Germanforblack
         end
         return output_array.join
       end
+      
+      def ordinalize(number)
+        if (11..13).include?(number.to_i % 100)
+          "th"
+        else
+          case number.to_i % 10
+            when 1; "st"
+            when 2; "nd"
+            when 3; "rd"
+            else "th"
+          end
+        end
+      end
+    end
+    
+    before do
+      @twitter = Smoke[:twitter].output.first
+      @event = Smoke[:upcoming].output.first
     end
     
     get '/' do
       @page_id = 'home'
       
       @links = Smoke[:delicious].output
-      @event = Smoke[:upcoming].output.first
       @projects = Smoke[:github].output
       @presentations = Smoke[:slideshare].output
-      @twitter = Smoke[:twitter].output.first
       @images = Smoke[:flickr].output
       @articles = Article.all.sort
       

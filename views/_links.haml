@@ -1,0 +1,6 @@
+#links
+  %h2 Links
+  %ul
+    - for link in links
+      %li
+        %a{:href => link.link}= link.description

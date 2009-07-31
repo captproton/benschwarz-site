@@ -4,7 +4,6 @@ require 'rubygems'
 require 'sinatra'
 require 'haml'
 require 'rdiscount'
-gem 'smoke', '>= 0.3.10'
 require 'smoke'
 
 require "#{__DIR__}/lib/stream"

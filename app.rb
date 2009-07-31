@@ -65,13 +65,11 @@ module Germanforblack
       end
     end
     
-    before do
-      @twitter = Smoke[:twitter].output.first
-      @event = Smoke[:upcoming].output.first
-    end
-    
     get '/' do
       @page_id = 'home'
+      
+      @twitter = Smoke[:twitter].output.first
+      @event = Smoke[:upcoming].output.first
       
       @links = Smoke[:delicious].output
       @projects = Smoke[:github].output
@@ -84,12 +82,21 @@ module Germanforblack
     
     get '/article' do
       @page_id = 'article'
+      
+      @twitter = Smoke[:twitter].output.first
+      @event = Smoke[:upcoming].output.first
       haml :article
     end
     
     get '/articles/:id' do
       @article = Article[params[:id]] || raise(Sinatra::NotFound)
       haml :article
+    end
+    
+    get '/articles.atom' do
+      @articles = Article.all.sort
+      content_type 'application/atom+xml'
+      haml :feed, :layout => false
     end
 
     not_found do

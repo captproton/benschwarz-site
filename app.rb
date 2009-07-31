@@ -66,7 +66,7 @@ module Germanforblack
     end
     
     before do
-      # @twitter = Smoke[:twitter].output.first
+      @twitter = Smoke[:twitter].output.first
       @event = Smoke[:upcoming].output.first
     end
     

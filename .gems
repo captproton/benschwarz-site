@@ -1,0 +1,4 @@
+haml
+rdiscount
+benschwarz-smoke --version ">= 0.3.10" --source gems.github.com
+

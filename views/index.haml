@@ -14,12 +14,13 @@
             %span.source
               from
               %a{:href => "/articles"} articles
-      %li.post
-        %p
-          %a{:href => "#"} Why stopping ffolio development was one of the best things I could do for the project
+      - for image in @images
+        %li.image
+          %img{:src => image[:url_s]}
+          %h3= image[:title]
           %span.source
             from
-            %a{:href => "#"} articles
+            %a{:href => flickr_url(image)} photos / flickr
       %li
         %h3 Smoke
         %span.source

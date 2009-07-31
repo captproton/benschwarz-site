@@ -25,6 +25,10 @@ module Germanforblack
       def article_path(article)
         "/articles/#{article.slug}"
       end
+      
+      def flickr_url(photo)
+        "http://flickr.com/photos/benschwarz/#{photo[:id]}"
+      end
     end
     
     get '/' do
@@ -35,6 +39,7 @@ module Germanforblack
       @projects = Smoke[:github].output
       @presentations = Smoke[:slideshare].output
       @twitter = Smoke[:twitter].output
+      @images = Smoke[:flickr].output
       @articles = Article.all.sort
       
       haml :index

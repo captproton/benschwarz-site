@@ -12,15 +12,6 @@
   
   = partial "links", :links => @links
   #projects
-    %h2 Projects
-    %ul
-      - for project in @projects
-        %li
-          %a{:href => project[:url]}= project[:name]
+    = partial "projects", :projects => @projects
   #presentations
-    %h2 Presentations
-    %ul
-      - for presentation in @presentations
-        %li
-          %a{:href => presentation[:URL]}
-            %img{:src => presentation[:ThumbnailSmallURL]}
+    = partial "presentations", :presentations => @presentations

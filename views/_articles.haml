@@ -1,7 +1,6 @@
 - for article in articles
   %li.post
-    %p
-      %a{:href => article_path(article)}= article.title
-      %span.source
-        from
-        %a{:href => "/articles"} articles
+    %a{:href => article_path(article)}= article.title
+    %span.source
+      from
+      %a{:href => "/articles"} articles

@@ -2,10 +2,7 @@
 %article.single
   %header
     %blockquote
-      %h1
-        %span &#8220;
-        = @article.title
-        %span &#8221;
+      %h1= "&#8220;#{@article.title}&#8221;"
       %span.attribution
         posted by Ben Schwarz on
         %time{:datetime => @article.published.xmlschema}

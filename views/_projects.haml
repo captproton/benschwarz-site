@@ -1,0 +1,5 @@
+%h2 Projects
+%ul
+  - for project in projects
+    %li
+      %a{:href => project[:url]}= project[:name]

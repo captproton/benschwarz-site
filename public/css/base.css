@@ -1,12 +1,15 @@
 body { font-family: Georgia; }
-/*#home { background: 0 140px no-repeat url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAxCAMAAAAYyPIKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRFPz8/S0tL8/PzV1dXb29v29vbt7e3n5+fe3t7q6urw8PDY2Njz8/Ph4eH5+fnk5OT////M5R3wgAAABF0Uk5T/////////////////////wAlrZliAAAAh0lEQVR42tzUyw6EIAxG4SMieJvL+z+tmDibCWdRl3b7hZJA+wMM+bOm73/xq7mYwFhNmq0mrWcyYZxMGCYT2FWuU/QomZBVWFTOfn2hqrRDIu0mk02Ft0pRealknlX5xhuU+Ftv8T/1OajxeVvCc6274PuzR/dUd9vywDLEcqebVf18OwQYAFcZDyt4bOqNAAAAAElFTkSuQmCC); }*/
 #wrapper { width: 960px; margin: 100px auto 0 auto; }
 img { display: block; }
 .fakecaps { font-size: 50%; text-transform: uppercase; font-variant: small-caps; vertical-align: text-top; }
 
-h1 { font-size: 2em; font-weight: normal; font-style: italic; color: #FF3300; line-height: 1.8em; margin-left: 40px; margin-bottom: 65px; }
+header { display: block; margin-left: 40px; margin-bottom: 65px; }
+h1 { font-size: 2em; font-weight: normal; font-style: italic; color: #FF3300; line-height: 1.8em;  }
 h1 a { background-color: #FF3300; text-decoration: underline; color: white; }
 h2 { color: #FF3300; font-size: 1.1em; font-weight: normal; margin-bottom: 30px; }
+
+blockquote { text-indent: -0.5em; }
+/*header h1 span:nth-child(1) { position: absolute; text-indent: -0.5em; }*/
 
 section, footer { display: block; }
 section#content { overflow: hidden; margin: 0 0 40px 40px; line-height: 1.5em; font-size: 0.8em; }
@@ -62,4 +65,4 @@ article aside { position: absolute; left: 645px; top: 181px; width: 160px; font-
 article section#content h2 { margin: 2em 0 0 0; display: block; }
 article section#content h3 { color: #666; font-size: 0.8em; font-style: italic; }
 article section#content p { margin: 0 0 1em 0; }
-article section#content a { text-transform: uppercase; font-weight: normal; text-decoration: underline; letter-spacing: 0.1em; color: #333; font-size: 0.8em; }
+section#content p a { text-transform: uppercase; font-weight: normal; text-decoration: underline; letter-spacing: 0.1em; color: #333; font-size: 0.8em; }

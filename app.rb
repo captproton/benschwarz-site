@@ -91,10 +91,13 @@ module Germanforblack
       haml :article
     end
     
-    get '/articles.atom' do
-      @articles = Article.all.sort
-      content_type 'application/atom+xml'
-      haml :feed, :layout => false
+    # Support for old feed, deprecate.
+    %w(/feed/atom.xml /articles.atom).each do |url|
+      get url do
+        @articles = Article.all.sort
+        content_type 'application/atom+xml'
+        haml :feed, :layout => false
+      end
     end
 
     not_found do

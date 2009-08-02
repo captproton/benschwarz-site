@@ -11,6 +11,7 @@ blockquote { text-indent: -0.5em; }
 
 section, footer { display: block; }
 section#content { margin-left: 40px; line-height: 1.5em; font-size: 0.8em; min-height: 300px; }
+section#content p { margin: 0 0 1em 0; }
 
 .column { float: left; margin-right: 20px; }
 .one { width: 100px; }
@@ -31,11 +32,11 @@ section#content { margin-left: 40px; line-height: 1.5em; font-size: 0.8em; min-h
 .column .bullet li:before { content: "\00BB \0020"; color: #666; }
 .column li a { color: #FF3300; }
 
-section#content img { margin: 5px 10px 12px -7px; float: left; }
+section#content img { margin: 5px 10px 0 -7px; float: left; }
 section#content span.source { color: #999; }
 section#content span.source a { color: #FF3300; }
 
-section#content h3 { text-transform: uppercase; font-weight: normal; text-decoration: underline; letter-spacing: 0.1em; color: #333; display: inline; }
+section#content h3 { text-transform: uppercase; font-weight: normal; text-decoration: underline; letter-spacing: 0.1em; color: #333; display: inline-block; margin-top: 0.7em; }
 
 section#content li,
 section#content a,
@@ -64,7 +65,6 @@ article section#content { margin-top: 120px; }
 #wrapper #home { position: absolute; top: 30px; margin-left: 40px; font-size: 0.7em; color: #999; text-decoration: none; font-style: italic; }
 article section#content h2 { margin: 2em 0 0 0; display: block; }
 article section#content h3 { color: #666; font-size: 0.8em; font-style: italic; }
-article section#content p { margin: 0 0 1em 0; }
 section#content p a { text-transform: uppercase; font-weight: normal; text-decoration: underline; letter-spacing: 0.1em; color: #333; font-size: 0.8em; }
 
 #special-projects { color: #666; margin-bottom: 115px; }

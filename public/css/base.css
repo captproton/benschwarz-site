@@ -23,8 +23,8 @@ section#content p { margin: 0 0 1em 0; }
 .seven { width: 520px; }
 .eight { width: 580px; }
 
-#content .column .note p { font-size: 0.8em; color: #999; line-height: 1.6em; font-style: italic; }
-#content .column .note p a { color: #666; }
+#content .note p { font-size: 0.8em; color: #999; line-height: 1.6em; font-style: italic; }
+#content .note p a { color: #666; }
 
 .column ul.bullet { margin-left: -0.7em; margin-bottom: 1.5em; }
 .column li { margin-bottom: 1.5em; }
@@ -61,6 +61,7 @@ article h1 { display: inline; }
 article span.attribution { color: #ccc; font-size: 0.8em; font-style: italic; }
 article span.attribution time { color: #999; }
 article section#content { margin-top: 120px; }
+article section#content img { float: none; }
 
 #wrapper #home { position: absolute; top: 30px; margin-left: 40px; font-size: 0.7em; color: #999; text-decoration: none; font-style: italic; }
 article section#content h2 { margin: 2em 0 0 0; display: block; }

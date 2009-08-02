@@ -9,5 +9,5 @@
           = "#{@article.published.strftime('%B')} #{@article.published.strftime('%d')}"
           %span.fakecaps= "#{ordinalize(@article.published.strftime('%d'))},"
           = @article.published.strftime('%Y')
-  %section#content.eight
+  %section#content
     = article_html(@article)

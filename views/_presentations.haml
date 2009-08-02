@@ -1,6 +1,7 @@
-%h2 Presentations
-%ul
-  - for presentation in presentations
-    %li
-      %a{:href => presentation[:URL]}
-        %img{:src => presentation[:ThumbnailSmallURL]}
+#presentations.column.two
+  %h2 Presentations
+  %ul
+    - for presentation in presentations
+      %li
+        %a{:href => presentation[:URL]}
+          %img{:src => presentation[:ThumbnailSmallURL]}

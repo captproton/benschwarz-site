@@ -1,15 +1,23 @@
+%a{:href => '/', :id => "home"} &larr; Home
+
 %header
-  %h1 About
-  %nav
-    %a{:href => "/", :title => "Life stream"} Home
-    %a{:href => "/writings", :title => "Articles that Ben Schwarz has written"} Writings
-  
+  %h1 About the author
 
 %section#content
-  :markdown 
-    Ben Schwarz is web architect hailing Melbourne who has a strong 
-    focus on user experience and scaleable content delievery. These
-    interests overflow into his programming and development work that
-    he has conducted over the past 9 years.
+  .column.seven
+    :markdown
+      ## Personal
+      ![Me](/images/me.png)
+      
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut nisl vitae mauris gravida dapibus. Mauris quis metus diam. Etiam suscipit massa vitae lectus volutpat non convallis massa placerat. Quisque ac lobortis arcu. In et lacus enim, id aliquam diam. Cras accumsan auctor ipsum sed facilisis. Donec eget metus magna. Quisque dictum, lectus porta imperdiet lacinia, ligula ligula porttitor justo, eget facilisis mi lacus sed sem. Sed consectetur fermentum sodales. Sed semper pellentesque quam, et ultricies felis ultrices a.
+  
+  .column.four
+    #special-projects
+      :markdown
+        ## Special projects
+        Apart from my personal work I also operate [AB+C](http://ab-c.com.au), alongside [Anthony Kolber](http://aestheticallyloyal.com). Together we are building [Ffolio](http://ffolio.net), a free portfolio service for artists and designers to gain beautiful, professional looking web representation.
+    .colophon.note.two
+      :markdown
+        Colophon: In part, you can read about [how this site came to be](/growing-up-with-a-new-site) within my opening post.
     
     

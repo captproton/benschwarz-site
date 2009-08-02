@@ -1,5 +1,5 @@
 body { font-family: Georgia; }
-#wrapper { width: 960px; margin: 100px auto 0 auto; }
+#wrapper { width: 960px; margin: 100px auto 0 auto; overflow: auto; }
 img { display: block; }
 .fakecaps { font-size: 50%; text-transform: uppercase; font-variant: small-caps; vertical-align: text-top; }
 
@@ -7,24 +7,31 @@ header { display: block; margin-left: 40px; margin-bottom: 65px; }
 h1 { font-size: 2em; font-weight: normal; font-style: italic; color: #FF3300; line-height: 1.8em;  }
 h1 a { background-color: #FF3300; text-decoration: underline; color: white; }
 h2 { color: #FF3300; font-size: 1.1em; font-weight: normal; margin-bottom: 30px; }
-
 blockquote { text-indent: -0.5em; }
-/*header h1 span:nth-child(1) { position: absolute; text-indent: -0.5em; }*/
 
 section, footer { display: block; }
-section#content { overflow: hidden; margin: 0 0 40px 40px; line-height: 1.5em; font-size: 0.8em; }
+section#content { margin-left: 40px; line-height: 1.5em; font-size: 0.8em; min-height: 300px; }
 
-section#content #recently { float: left; width: 340px; margin-right: 20px; }
-section#content #recently li,
-section#content #links li { margin-bottom: 1.5em; }
-section#content #links { float: left; width: 220px; margin-right: 20px; }
-section#content #projects { float: left; width: 100px; margin-right: 20px; }
-section#content #presentations { float: left; width: 160px; margin-right: 20px; }
-section#content #projects ul { margin-left: -0.7em; margin-bottom: 1.5em; }
-section#content #projects li:before { content: "\00BB \0020"; color: #666; }
-section#content #projects li a { color: #FF3300; }
-section#content img { margin: 5px 0 12px -7px; }
+.column { float: left; margin-right: 20px; }
+.one { width: 100px; }
+.two { width: 160px; }
+.three { width: 220px; }
+.four { width: 340px; }
+.five { width: 400px; }
+.six { width: 460px; }
+.seven { width: 520px; }
+.eight { width: 580px; }
 
+#content .column .note p { font-size: 0.8em; color: #999; line-height: 1.6em; font-style: italic; }
+#content .column .note p a { color: #666; }
+
+.column ul.bullet { margin-left: -0.7em; margin-bottom: 1.5em; }
+.column li { margin-bottom: 1.5em; }
+.column .bullet li { margin-bottom: 0; }
+.column .bullet li:before { content: "\00BB \0020"; color: #666; }
+.column li a { color: #FF3300; }
+
+section#content img { margin: 5px 10px 12px -7px; float: left; }
 section#content span.source { color: #999; }
 section#content span.source a { color: #FF3300; }
 
@@ -34,22 +41,16 @@ section#content li,
 section#content a,
 section#content p { color: #333333; }
 
-section#footer { line-height: 1.1em; background-color: black; overflow: hidden; padding-bottom: 25px; }
+section#footer { line-height: 1.1em; background-color: black; overflow: hidden; margin-top: 40px; padding-bottom: 25px; }
 section#footer section { width: 920px; margin: 0 auto; padding: 20px 0px 0px 40px; }
 section#footer h4 { color: #FF3300; font-weight: normal; font-style: italic; text-transform: lowercase; font-size: 1.2em; margin-bottom: 25px; }
 section#footer p, 
 section#footer li { color: #CCC; font-size: 0.8em; }
 section#footer a { color: #FF3300; }
 
-section#footer div { margin: 0px 20px 0px 0px; }
-
-section#footer #about { width: 340px; float: left; }
 section#footer #about img { float: left; margin: 0 0 4px -5px; }
-section#footer #events { width: 220px; float: left; }
-section#footer #elsewhere { float: left; }
 section#footer #elsewhere ul { margin-left: -0.5em; }
-section#footer #elsewhere li:before { content: "\00BB \0020"; color: #666; }
-section#footer #cc { width: 160px; float: left; }
+section#footer #elsewhere li:before { color: #666; }
 section#footer #cc h4 { background: no-repeat url("/images/cc.png"); text-indent: -9999px; height: 26px; margin-bottom: 18px; }
 
 section#footer span.source { color: #666; }
@@ -58,11 +59,12 @@ article { position: relative; display: block; }
 article h1 { display: inline; }
 article span.attribution { color: #ccc; font-size: 0.8em; font-style: italic; }
 article span.attribution time { color: #999; }
-article section#content { width: 580px; margin-top: 120px; }
+article section#content { margin-top: 120px; }
 
-article aside { position: absolute; left: 645px; top: 181px; width: 160px; font-size: 0.7em; color: #999; line-height: 1.6em; }
 #wrapper #home { position: absolute; top: 30px; margin-left: 40px; font-size: 0.7em; color: #999; text-decoration: none; font-style: italic; }
 article section#content h2 { margin: 2em 0 0 0; display: block; }
 article section#content h3 { color: #666; font-size: 0.8em; font-style: italic; }
 article section#content p { margin: 0 0 1em 0; }
 section#content p a { text-transform: uppercase; font-weight: normal; text-decoration: underline; letter-spacing: 0.1em; color: #333; font-size: 0.8em; }
+
+#special-projects { color: #666; margin-bottom: 115px; }

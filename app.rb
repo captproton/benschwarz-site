@@ -99,6 +99,10 @@ module Germanforblack
         haml :feed, :layout => false
       end
     end
+    
+    get '/about' do
+      haml :about
+    end
 
     not_found do
       haml :not_found

@@ -1,5 +1,5 @@
 %a{:href => '/', :id => "home"} &larr; Home
-%article.single
+%article
   %header
     %blockquote
       %h1= "&#8220;#{@article.title}&#8221;"
@@ -9,5 +9,5 @@
           = "#{@article.published.strftime('%B')} #{@article.published.strftime('%d')}"
           %span.fakecaps= "#{ordinalize(@article.published.strftime('%d'))},"
           = @article.published.strftime('%Y')
-  %section#content
+  %section#content.eight
     = article_html(@article)

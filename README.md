@@ -1,11 +1,12 @@
 # My personal web site
 
+Find it online at http://germanforblack.com
+
 ### Licensing 
-Articles and concepts are licenced Creative Commons, nc-sa. (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-Images and design are *NOT LICENCED*.
+* Articles and concepts are licenced Creative Commons, nc-sa. (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+* Images and design are *NOT LICENCED*.
+* All code is open source and available for _nabbing_ (MIT, Following)
 
-
-All code is open source and available for _nabbing_ (MIT, Following)
 --
 
 Copyright (c) 2009, Ben Schwarz

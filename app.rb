@@ -11,7 +11,6 @@ Article.path = "#{__DIR__}/articles"
 
 module Germanforblack
   class Application < Sinatra::Base
-    set :haml, {:format => :html5}
     set :public, File.join(File.dirname(__FILE__), 'public')
     enable :static
     
@@ -29,7 +28,7 @@ module Germanforblack
         @images = Smoke[:flickr].output
         @articles = Article.all.sort
         
-        haml :index
+        haml :index, :format => :html5
       end
     end
     
@@ -38,7 +37,7 @@ module Germanforblack
         @twitter = Smoke[:twitter].output.first
         @event = Smoke[:upcoming].output.first
         @article = Article[params[:id]] || raise(Sinatra::NotFound)
-        haml :article
+        haml :article, :format => :html5
       end
     end
 
@@ -54,12 +53,12 @@ module Germanforblack
       cache do
         @twitter = Smoke[:twitter].output.first
         @event = Smoke[:upcoming].output.first
-        haml :about
+        haml :about, :format => :html5
       end
     end
 
     not_found do
-      haml :not_found
+      haml :not_found, :format => :html5
     end
   end
 end

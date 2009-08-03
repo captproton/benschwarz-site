@@ -12,12 +12,13 @@ Article.path = "#{__DIR__}/articles"
 module Germanforblack
   class Application < Sinatra::Base
     set :public, File.join(File.dirname(__FILE__), 'public')
+    set :haml, {:format => :html5, :attr_wrapper => '"'}
     enable :static
     
     helpers do
       include Helpers
     end
-    
+      
     get '/' do
       cache do
         @twitter = Smoke[:twitter].output.first
@@ -28,7 +29,7 @@ module Germanforblack
         @images = Smoke[:flickr].output
         @articles = Article.all.sort
         
-        haml :index, :format => :html5
+        haml :index
       end
     end
     
@@ -37,7 +38,7 @@ module Germanforblack
         @twitter = Smoke[:twitter].output.first
         @event = Smoke[:upcoming].output.first
         @article = Article[params[:id]] || raise(Sinatra::NotFound)
-        haml :article, :format => :html5
+        haml :article
       end
     end
 
@@ -53,12 +54,12 @@ module Germanforblack
       cache do
         @twitter = Smoke[:twitter].output.first
         @event = Smoke[:upcoming].output.first
-        haml :about, :format => :html5
+        haml :about
       end
     end
 
     not_found do
-      haml :not_found, :format => :html5
+      haml :not_found
     end
   end
 end

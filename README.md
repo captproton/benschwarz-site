@@ -1,6 +1,6 @@
 # My personal web site
 
-Find it online at http://germanforblack.com
+[Find it online](http://www.germanforblack.com)
 
 ### Licensing 
 * Articles and concepts are licenced Creative Commons, nc-sa. (http://creativecommons.org/licenses/by-nc-sa/3.0/)

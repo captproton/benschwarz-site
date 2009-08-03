@@ -6,7 +6,7 @@ require 'haml'
 require 'rdiscount'
 require 'smoke'
 
-%w(helpers stream article haml-filter cache).each{|r| require "#{__DIR__}/lib/#{r}" }
+%w(helpers stream article cache).each{|r| require "#{__DIR__}/lib/#{r}" }
 Article.path = "#{__DIR__}/articles"
 
 module Germanforblack
@@ -45,7 +45,7 @@ module Germanforblack
     get '/articles.atom' do
       cache do
         @articles = Article.all.sort
-        content_type 'application/atom+xml'
+        # content_type 'application/atom+xml'
         haml :feed, {:format => :xhtml, :layout => false}
       end
     end

@@ -6,7 +6,7 @@ require 'haml'
 require 'rdiscount'
 require 'smoke'
 
-%w(helpers stream article haml-filter).each{|r| require "#{__DIR__}/lib/#{r}" }
+%w(helpers stream article haml-filter cache).each{|r| require "#{__DIR__}/lib/#{r}" }
 Article.path = "#{__DIR__}/articles"
 
 module Germanforblack
@@ -19,40 +19,43 @@ module Germanforblack
       include Helpers
     end
     
-    before do
-      @twitter = Smoke[:twitter].output.first
-      @event = Smoke[:upcoming].output.first
-    end
-    
     get '/' do
-      @page_id = 'home'
-      @links = Smoke[:delicious].output
-      @projects = Smoke[:github].output
-      @presentations = Smoke[:slideshare].output
-      @images = Smoke[:flickr].output
-      @articles = Article.all.sort
-      
-      haml :index
-    end
-    
-    get '/article' do
-      @page_id = 'article'
-      haml :article
+      cache do
+        @twitter = Smoke[:twitter].output.first
+        @event = Smoke[:upcoming].output.first
+        @links = Smoke[:delicious].output
+        @projects = Smoke[:github].output
+        @presentations = Smoke[:slideshare].output
+        @images = Smoke[:flickr].output
+        @articles = Article.all.sort
+        
+        haml :index
+      end
     end
     
     get '/articles/:id' do
-      @article = Article[params[:id]] || raise(Sinatra::NotFound)
-      haml :article
+      cache do
+        @twitter = Smoke[:twitter].output.first
+        @event = Smoke[:upcoming].output.first
+        @article = Article[params[:id]] || raise(Sinatra::NotFound)
+        haml :article
+      end
     end
 
     get '/articles.atom' do
-      @articles = Article.all.sort
-      content_type 'application/atom+xml'
-      haml :feed, :layout => false
+      cache do
+        @articles = Article.all.sort
+        content_type 'application/atom+xml'
+        haml :feed, :layout => false
+      end
     end
     
     get '/about' do
-      haml :about
+      cache do
+        @twitter = Smoke[:twitter].output.first
+        @event = Smoke[:upcoming].output.first
+        haml :about
+      end
     end
 
     not_found do

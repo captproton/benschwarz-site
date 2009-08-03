@@ -46,5 +46,21 @@ module Germanforblack
       @article = article
       haml(article.template, :layout => false)
     end
+    
+    def cache(&block)
+      begin
+        key = request.path_info
+        page = Cache[key]
+        if page
+          return html
+        else
+          html = block.call
+          Cache.store(key, html, :expires_in => 3600)
+        end
+        return html
+      rescue
+        return block.call
+      end
+    end
   end
 end

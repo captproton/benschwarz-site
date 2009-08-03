@@ -46,7 +46,7 @@ module Germanforblack
       cache do
         @articles = Article.all.sort
         content_type 'application/atom+xml'
-        haml :feed, :layout => false
+        haml :feed, {:format => :xhtml, :layout => false}
       end
     end
     

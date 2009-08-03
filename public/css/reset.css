@@ -52,3 +52,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+
+/* Makes HTML5 structural elements structural */
+article, aside, footer, header, nav, section {display: block;}

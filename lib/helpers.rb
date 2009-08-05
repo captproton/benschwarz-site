@@ -47,9 +47,9 @@ module Germanforblack
       haml(article.template, :layout => false)
     end
     
-    def cache(&block)
+    def cache(name = nil, &block)
       begin
-        key = request.path_info
+        key = name || request.path_info
         page = Cache[key]
         if page
           return html

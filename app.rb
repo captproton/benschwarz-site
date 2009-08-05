@@ -24,10 +24,10 @@ module Germanforblack
       cache do
         @twitter = Smoke[:twitter].output.first
         @event = Smoke[:upcoming].output.first
+        @image = Smoke[:flickr].output.sort_by{rand}.first
         @links = Smoke[:delicious].output
         @projects = Smoke[:github].output
         @presentations = Smoke[:slideshare].output
-        @images = Smoke[:flickr].output
         @articles = Article.all.sort
         
         haml :index

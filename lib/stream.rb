@@ -5,6 +5,7 @@ Smoke.yql(:flickr) do
   from 'flickr.photos.search'
   where :user_id, "36821533@N00"
   where :tags, "germanforblack-site"
+
   path :query, :results, :photo
 end
 

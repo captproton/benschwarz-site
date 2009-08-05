@@ -1,9 +1,9 @@
-- for image in images
-  %li.image
-    %a{:href => flickr_url(image)}
-      %img{:src => image[:url_s]}
-    %h3
-      %a{:href => flickr_url(image)}= image[:title]
-    %span.source
-      from
-      %a{:href => flickr_url(image)} photos / flickr
+- image = images.sort{rand}.first
+%li.image
+  %a{:href => flickr_url(image)}
+    %img{:src => "http://farm#{image[:farm]}.static.flickr.com/#{image[:server]}/#{image[:id]}_#{image[:secret]}_m.jpg"}
+  %h3
+    %a{:href => flickr_url(image)}= image[:title]
+  %span.source
+    from
+    %a{:href => "http://www.flickr.com/search/?w=36821533%40N00&q=germanforblack-site&m=text"} photos / flickr

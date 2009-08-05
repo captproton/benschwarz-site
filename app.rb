@@ -3,6 +3,7 @@ __DIR__ = File.dirname(__FILE__)
 require 'rubygems'
 require 'sinatra'
 gem 'haml', '2.0.9'
+require 'haml'
 require 'rdiscount'
 require 'smoke'
 

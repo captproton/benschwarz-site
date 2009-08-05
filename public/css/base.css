@@ -32,7 +32,7 @@ section#content p { margin: 0 0 1em 0; }
 .column .bullet li:before { content: "\00BB \0020"; color: #666; }
 .column li a { color: #FF3300; }
 
-section#content img { margin: 5px 10px 0 -7px; float: left; }
+section#content img { margin: 5px 10px 0 -7px; }
 section#content span.source { color: #999; }
 section#content span.source a { color: #FF3300; }
 
@@ -61,7 +61,7 @@ article h1 { display: inline; }
 article span.attribution { color: #ccc; font-size: 0.8em; font-style: italic; }
 article span.attribution time { color: #999; }
 article section#content { margin-top: 120px; }
-article section#content img { float: none; }
+article section#content img { margin-bottom: 1.5em; }
 
 #wrapper #home { position: absolute; top: 30px; margin-left: 40px; font-size: 0.7em; color: #999; text-decoration: none; font-style: italic; }
 article section#content h2 { margin: 2em 0 0 0; display: block; }

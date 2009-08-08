@@ -42,6 +42,8 @@ section#content li,
 section#content a,
 section#content p { color: #333333; }
 
+section.about img { float: left; }
+
 section#footer { line-height: 1.1em; background-color: black; overflow: hidden; margin-top: 40px; padding-bottom: 25px; }
 section#footer section { width: 920px; margin: 0 auto; padding: 20px 0px 0px 40px; }
 section#footer h4 { color: #FF3300; font-weight: normal; font-style: italic; text-transform: lowercase; font-size: 1.2em; margin-bottom: 25px; }

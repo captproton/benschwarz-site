@@ -10,7 +10,7 @@ Smoke.yql(:flickr) do
 end
 
 Smoke.data(:twitter) do
-  url "http://twitter.com/users/show.json?screen_name=benschwarz"
+  url "http://twitter.com/users/show.json?screen_name=benschwarz", :format => :json
 end
 
 Smoke.feed(:delicious) do

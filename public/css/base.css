@@ -25,6 +25,7 @@ section#content p { margin: 0 0 1em 0; }
 
 #content .note p { font-size: 0.8em; color: #999; line-height: 1.6em; font-style: italic; }
 #content .note p a { color: #666; }
+#content q.pullquote { font-size: 150%; font-style: italic; color: #999; margin: 1em 0; margin-left: 1.2em; display:block; }
 
 .column ul.bullet { margin-left: -0.7em; margin-bottom: 1.5em; }
 .column li { margin-bottom: 1.5em; }
@@ -64,6 +65,11 @@ article span.attribution { color: #ccc; font-size: 0.8em; font-style: italic; }
 article span.attribution time { color: #999; }
 article section#content { margin-top: 120px; }
 article section#content img { margin-bottom: 1.5em; }
+
+article section ul { margin-top: 1em; margin-bottom: 1em; }
+article section .column ul li { margin-bottom: 0.5em; list-style-type: decimal; }
+
+code { font-size: 120%; background-color: #ccc; padding: 0.1em 0.3em; }
 
 #wrapper #home { position: absolute; top: 30px; margin-left: 40px; font-size: 0.7em; color: #999; text-decoration: none; font-style: italic; }
 article section#content h2 { margin: 2em 0 0 0; display: block; }

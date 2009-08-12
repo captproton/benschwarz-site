@@ -51,15 +51,11 @@ module Germanforblack
       begin
         key = name || request.path_info
         page = Cache[key]
-        if page
-          return html
-        else
-          html = block.call
-          Cache.store(key, html, :expires_in => 3600)
-        end
-        return html
+        return page if page
       rescue
-        return block.call
+        page = block.call
+        Cache.store(key, page, :expires_in => 3600)
+        return page
       end
     end
   end

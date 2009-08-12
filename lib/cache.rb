@@ -2,6 +2,7 @@ module Germanforblack
   unless defined?(Cache)
     require 'moneta'
     begin
+      puts "*** Using memcached cache store"
       require 'moneta/memcache'
       Cache = Moneta::Memcache.new(:server => ENV['MEMCACHE_SERVERS'].split(','), :namespace => ENV['MEMCACHE_NAMESPACE'])
     rescue

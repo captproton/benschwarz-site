@@ -1,0 +1,6 @@
+moneta git://github.com/benschwarz/moneta.git
+smoke git://github.com/benschwarz/smoke.git
+dependencies 0.0.6 git://github.com/djanowski/dependencies.git
+haml 2.0.9 git://github.com/nex3/haml.git
+rack 1.0.0 git://github.com/rack/rack.git
+sinatra 0.9.4 git://github.com/sinatra/sinatra.git

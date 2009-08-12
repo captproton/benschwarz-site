@@ -1,11 +1,18 @@
 __DIR__ = File.dirname(__FILE__)
 
 require 'rubygems'
+
+begin
+  require "vendor/dependencies/lib/dependencies"
+rescue LoadError
+  require "dependencies"
+end
+
 require 'sinatra'
-gem 'haml', '2.0.9'
+require 'smoke'
+require 'moneta'
 require 'haml'
 require 'rdiscount'
-require 'smoke'
 
 %w(helpers stream article cache).each{|r| require "#{__DIR__}/lib/#{r}" }
 Article.path = "#{__DIR__}/articles"

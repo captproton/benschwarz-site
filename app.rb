@@ -19,6 +19,7 @@ Article.path = "#{__DIR__}/articles"
 
 module Germanforblack
   class Application < Sinatra::Base
+    set :logging, true
     set :public, File.join(File.dirname(__FILE__), 'public')
     set :haml, {:format => :html5, :attr_wrapper => '"'}
     enable :static

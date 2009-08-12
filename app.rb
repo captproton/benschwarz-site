@@ -30,7 +30,6 @@ module Germanforblack
       
     get '/' do
       cache do
-        @twitter = Smoke[:twitter].output.first
         @event = Smoke[:upcoming].output.first
         @image = Smoke[:flickr].output.sort_by{rand}.first
         @links = Smoke[:delicious].output

@@ -1,3 +1,12 @@
+Smoke.configure do |c|
+  c[:cache][:enabled] = true
+  c[:cache][:store] = :memcache
+  c[:cache][:options] = {
+    :server => ENV['MEMCACHE_SERVERS'].split(','), 
+    :namespace => ENV['MEMCACHE_NAMESPACE']
+  }
+end
+
 require 'digest/sha1'
 
 Smoke.yql(:flickr) do

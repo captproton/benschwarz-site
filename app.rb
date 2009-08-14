@@ -69,5 +69,9 @@ module Germanforblack
     not_found do
       haml :not_found
     end
+    
+    error(500..599) do
+      haml :application_errors
+    end
   end
 end

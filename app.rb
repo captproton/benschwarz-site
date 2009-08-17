@@ -67,11 +67,11 @@ module Germanforblack
     end
 
     not_found do
-      haml :not_found
+      haml :not_found, {:layout => :plain}
     end
     
     error(500..599) do
-      haml :application_errors
+      haml :application_errors, {:layout => :plain}
     end
   end
 end

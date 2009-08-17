@@ -35,6 +35,9 @@ class Article
   def title
     template_variable("title")
   end
+  def excerpt
+    template_variable("excerpt")
+  end
   def published
     @published ||= self.class.parse_date(template_variable("published"))
   end

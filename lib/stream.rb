@@ -1,10 +1,18 @@
-Smoke.configure do |c|
-  c[:cache][:enabled] = true
-  c[:cache][:store] = :memcache
-  c[:cache][:options] = {
-    :server => ENV['MEMCACHE_SERVERS'].split(','), 
-    :namespace => ENV['MEMCACHE_NAMESPACE']
-  }
+begin
+  Smoke.configure do |c|
+    c[:cache][:enabled] = true
+    c[:cache][:store] = :memcache
+    c[:cache][:options] = {
+      :server => ENV['MEMCACHE_SERVERS'].split(','), 
+      :namespace => ENV['MEMCACHE_NAMESPACE']
+    }
+  end
+rescue
+  Smoke.log.info "Using memory cache store"
+  Smoke.configure do |c|
+    c[:cache][:enabled] = true
+    c[:cache][:store] = :memory
+  end
 end
 
 require 'digest/sha1'

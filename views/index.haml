@@ -4,10 +4,15 @@
     is a web architect hailing from Melbourne, Australia who has a strong focus on user experience and scalable content delivery. 
     
 %section#content
-  #recently.column.four
+  %section#recently.column.four
     %h2 Recently
-    %ul
+    %ul.articles
       = partial "articles", :articles => @articles
+      %li
+        %span.source
+          from
+          %a{:href => "/articles"} articles
+    %ul.images
       = partial "images", :image => @image
   
   = partial "links", :links => @links

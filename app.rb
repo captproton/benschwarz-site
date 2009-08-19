@@ -14,6 +14,8 @@ require 'moneta'
 require 'haml'
 require 'rdiscount'
 
+require 'core_ext/enumerable'
+
 %w(helpers stream article cache haml-filter).each{|r| require "#{__DIR__}/lib/#{r}" }
 Article.path = "#{__DIR__}/articles"
 
@@ -35,7 +37,7 @@ module Germanforblack
         @links = Smoke[:delicious].output
         @projects = Smoke[:github].output
         @presentations = Smoke[:slideshare].output
-        @articles = Article.all.sort
+        @articles = Article.all.sort[0..1]
         
         haml :index
       end
@@ -47,6 +49,15 @@ module Germanforblack
         @event = Smoke[:upcoming].output.first
         @article = Article[params[:id]] || raise(Sinatra::NotFound)
         haml :article
+      end
+    end
+
+    get '/articles' do
+      cache do
+        @twitter = Smoke[:twitter].output.first
+        @event = Smoke[:upcoming].output.first
+        @articles = Article.all.sort
+        haml :articles
       end
     end
 

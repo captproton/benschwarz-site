@@ -14,7 +14,7 @@ require 'moneta'
 require 'haml'
 require 'rdiscount'
 
-%w(helpers stream article cache).each{|r| require "#{__DIR__}/lib/#{r}" }
+%w(helpers stream article cache haml-filter).each{|r| require "#{__DIR__}/lib/#{r}" }
 Article.path = "#{__DIR__}/articles"
 
 module Germanforblack

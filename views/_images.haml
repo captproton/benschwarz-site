@@ -1,5 +1,5 @@
 %li.image
-  %a{:href => flickr_url(image)}
+  %a{:href => flickr_url(image)}<
     %img{:src => "http://farm#{image[:farm]}.static.flickr.com/#{image[:server]}/#{image[:id]}_#{image[:secret]}_m.jpg"}
   %h3
     %a{:href => flickr_url(image)}= image[:title]

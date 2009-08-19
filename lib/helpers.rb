@@ -62,5 +62,11 @@ module Germanforblack
         block.call
       end
     end
+    
+    def cdata(&block)
+      text = capture_haml(&block)
+      text.gsub!("\n", "\n  ")
+      "<![CDATA[\n  #{text}\n]]>"
+    end
   end
 end

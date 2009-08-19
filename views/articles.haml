@@ -1,0 +1,20 @@
+%a{:href => '/', :id => "home"} &larr; Home
+%article
+  %header
+    %blockquote
+      %h1 An archive of articles
+      %span.attribution written by Ben Schwarz
+  %section#content
+    %dl
+      - @articles.group_by{|a| a.published.year }.each do |year, articles|
+        %dt.one
+          = year
+        %dd
+          - articles.group_by{|a| a.published.month}.each do |month, articles|
+            %dl
+              %dt.one= articles.first.published.strftime('%B')
+              - for article in articles
+                %dd.six
+                  %h3
+                    %a{:href => article_path(article)}= article.title
+                  %p= article.excerpt

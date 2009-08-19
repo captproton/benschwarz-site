@@ -12,6 +12,8 @@ blockquote { text-indent: -0.5em; }
 section, footer { display: block; }
 section#content { margin-left: 40px; line-height: 1.5em; font-size: 0.8em; min-height: 300px; }
 section#content p { margin: 0 0 1em 0; }
+section#content ul { clear: both; margin-bottom: 2em; }
+section#content .articles .source { text-align: right; }
 
 .column { float: left; margin-right: 20px; }
 .one { width: 100px; }
@@ -34,7 +36,7 @@ section#content p { margin: 0 0 1em 0; }
 .column li a { color: #FF3300; }
 
 section#content img { margin: 5px 10px 0 -7px; }
-section#content span.source { color: #999; }
+section#content span.source { color: #999; font-style: italic; }
 section#content span.source a { color: #FF3300; }
 
 section#content h3 { text-transform: uppercase; font-weight: normal; text-decoration: underline; letter-spacing: 0.1em; color: #333; display: inline-block; margin-top: 0.7em; }
@@ -77,3 +79,7 @@ article section#content h3 { color: #666; font-size: 0.8em; font-style: italic; 
 section#content p a { text-transform: uppercase; font-weight: normal; text-decoration: underline; letter-spacing: 0.1em; color: #333; font-size: 0.8em; }
 
 #special-projects { color: #666; margin-bottom: 115px; }
+
+section#content dt { font-style: italic; color: #999; }
+section#content dd { margin-left: 10em; margin-top: -1.5em; margin-bottom: 3em; }
+section#content dd h3 { margin-top: 0;}

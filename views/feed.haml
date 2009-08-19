@@ -16,9 +16,14 @@
   - for article in @articles[0..14]
     %entry
       %id== tag:www.germanforblack.com,2009-22-07:#{article_path(article)}
-      %title{:type => "html"}= article.title
+      %title{:type => "html"}
+        = cdata do
+          = article.title
+        
       %published= article.published.xmlschema
       %updated= (article.updated || article.published).xmlschema
       %link{:href => "http://www.germanforblack.com#{article_path(article)}", :rel => "alternate", :hreflang => "en", :type => "text/html"}/
       %content{:type => "xhtml", "xml:lang"=>"en", "xml:base"=>"http://www.germanforblack.com/"}
-        %div{:xmlns => "http://www.w3.org/1999/xhtml"}= article_html(article)
+        %div{:xmlns => "http://www.w3.org/1999/xhtml"}
+          = cdata do
+            = article_html(article)

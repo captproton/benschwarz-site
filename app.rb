@@ -1,9 +1,5 @@
 __DIR__ = File.dirname(__FILE__)
 
-require File.expand_path(File.join(__DIR__, 'vendor', 'gems', 'environment'))
-
-Bundler.require_env
-
 require 'lib/core_ext/enumerable'
 require 'smoke'
 require 'rdiscount'

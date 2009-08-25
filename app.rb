@@ -7,6 +7,10 @@ Bundler.require_env
 require 'lib/core_ext/enumerable'
 require 'smoke'
 require 'rdiscount'
+require 'json'
+require 'crack'
+require 'moneta'
+require 'haml'
 
 %w(helpers stream article cache haml-filter).each{|r| require "#{__DIR__}/lib/#{r}" }
 Article.path = "#{__DIR__}/articles"

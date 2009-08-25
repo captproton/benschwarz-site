@@ -1,6 +1,7 @@
 __DIR__ = File.dirname(__FILE__)
 
 require 'lib/core_ext/enumerable'
+require 'sinatra'
 require 'smoke'
 require 'rdiscount'
 require 'json'

@@ -32,12 +32,11 @@ class Article
     File.basename(self.path, ".haml")
   end
   alias :dom_id :slug
-  def title
-    template_variable("title")
+  
+  def method_missing(m)
+    template_variable(m.to_s) || nil
   end
-  def excerpt
-    template_variable("excerpt")
-  end
+  
   def published
     @published ||= self.class.parse_date(template_variable("published"))
   end

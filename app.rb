@@ -1,20 +1,11 @@
 __DIR__ = File.dirname(__FILE__)
 
-require 'rubygems'
+require File.expand_path(File.join(__DIR__, 'vendor', 'gems', 'environment'))
 
-begin
-  require "vendor/dependencies/lib/dependencies"
-rescue LoadError
-  require "dependencies"
-end
+Bundler.require_env
 
-require 'sinatra'
+require 'lib/core_ext/enumerable'
 require 'smoke'
-require 'moneta'
-require 'haml'
-require 'rdiscount'
-
-require 'core_ext/enumerable'
 
 %w(helpers stream article cache haml-filter).each{|r| require "#{__DIR__}/lib/#{r}" }
 Article.path = "#{__DIR__}/articles"
@@ -48,7 +39,7 @@ module Germanforblack
         @twitter = Smoke[:twitter].output.first
         @event = Smoke[:upcoming].output.first
         @article = Article[params[:id]] || raise(Sinatra::NotFound)
-        haml :article
+        haml :article, {:layout => :inner_layout}
       end
     end
 

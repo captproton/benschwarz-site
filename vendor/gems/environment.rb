@@ -11,8 +11,6 @@ module Bundler
   $LOAD_PATH.unshift File.expand_path("#{dir}/gems/rack-1.0.0/lib")
   $LOAD_PATH.unshift File.expand_path("#{dir}/gems/sinatra-0.9.4/bin")
   $LOAD_PATH.unshift File.expand_path("#{dir}/gems/sinatra-0.9.4/lib")
-  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/rdiscount-1.3.4/bin")
-  $LOAD_PATH.unshift File.expand_path("#{dir}/gems/rdiscount-1.3.4/lib")
   $LOAD_PATH.unshift File.expand_path("#{dir}/gems/haml-2.0.9/bin")
   $LOAD_PATH.unshift File.expand_path("#{dir}/gems/haml-2.0.9/lib")
 
@@ -27,8 +25,6 @@ module Bundler
   @bundled_specs["sinatra"].loaded_from = "#{dir}/specifications/sinatra-0.9.4.gemspec"
   @bundled_specs["rack"] = eval(File.read("#{dir}/specifications/rack-1.0.0.gemspec"))
   @bundled_specs["rack"].loaded_from = "#{dir}/specifications/rack-1.0.0.gemspec"
-  @bundled_specs["rdiscount"] = eval(File.read("#{dir}/specifications/rdiscount-1.3.4.gemspec"))
-  @bundled_specs["rdiscount"].loaded_from = "#{dir}/specifications/rdiscount-1.3.4.gemspec"
 
   def self.add_specs_to_loaded_specs
     Gem.loaded_specs.merge! @bundled_specs

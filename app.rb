@@ -2,12 +2,13 @@ __DIR__ = File.dirname(__FILE__)
 
 require 'lib/core_ext/enumerable'
 require 'sinatra'
-require 'smoke'
 require 'rdiscount'
 require 'json'
 require 'crack'
 require 'moneta'
 require 'haml'
+
+require "#{__DIR__}/vendor/smoke/lib/smoke"
 
 %w(helpers stream article cache haml-filter).each{|r| require "#{__DIR__}/lib/#{r}" }
 Article.path = "#{__DIR__}/articles"

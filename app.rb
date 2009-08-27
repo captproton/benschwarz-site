@@ -10,7 +10,7 @@ require 'haml'
 
 require "#{__DIR__}/vendor/smoke/lib/smoke"
 
-%w(helpers stream article cache haml-filter).each{|r| require "#{__DIR__}/lib/#{r}" }
+%w(helpers stream article haml-filter).each{|r| require "#{__DIR__}/lib/#{r}" }
 Article.path = "#{__DIR__}/articles"
 
 module Germanforblack
@@ -25,50 +25,40 @@ module Germanforblack
     end
       
     get '/' do
-      cache do
-        @event = Smoke[:upcoming].output.first
-        @image = Smoke[:flickr].output.sort_by{rand}.first
-        @links = Smoke[:delicious].output
-        @projects = Smoke[:github].output
-        @presentations = Smoke[:slideshare].output
-        @articles = Article.all.sort[0..1]
-        
-        haml :index
-      end
+      @event = Smoke[:upcoming].output.first
+      @image = Smoke[:flickr].output.sort_by{rand}.first
+      @links = Smoke[:delicious].output
+      @projects = Smoke[:github].output
+      @presentations = Smoke[:slideshare].output
+      @articles = Article.all.sort[0..1]
+      
+      haml :index
     end
     
     get '/articles/:id' do
-      cache do
-        @twitter = Smoke[:twitter].output.first
-        @event = Smoke[:upcoming].output.first
-        @article = Article[params[:id]] || raise(Sinatra::NotFound)
-        haml :article, {:layout => :inner_layout}
-      end
+      @twitter = Smoke[:twitter].output.first
+      @event = Smoke[:upcoming].output.first
+      @article = Article[params[:id]] || raise(Sinatra::NotFound)
+      haml :article, {:layout => :inner_layout}
     end
 
     get '/articles' do
-      cache do
-        @twitter = Smoke[:twitter].output.first
-        @event = Smoke[:upcoming].output.first
-        @articles = Article.all.sort
-        haml :articles
-      end
+      @twitter = Smoke[:twitter].output.first
+      @event = Smoke[:upcoming].output.first
+      @articles = Article.all.sort
+      haml :articles
     end
 
     get '/articles.atom' do
-      cache do
-        @articles = Article.all.sort
-        content_type 'application/atom+xml'
-        haml :feed, {:format => :xhtml, :layout => false}
-      end
+      @articles = Article.all.sort
+      content_type 'application/atom+xml'
+      haml :feed, {:format => :xhtml, :layout => false}
     end
     
     get '/about' do
-      cache do
-        @twitter = Smoke[:twitter].output.first
-        @event = Smoke[:upcoming].output.first
-        haml :about
-      end
+      @twitter = Smoke[:twitter].output.first
+      @event = Smoke[:upcoming].output.first
+      haml :about
     end
 
     not_found do

@@ -47,22 +47,6 @@ module Germanforblack
       haml(article.template, :layout => false)
     end
     
-    def cache(name = nil, &block)
-      begin
-        key = name || request.path_info
-        page = Cache[key]
-        if page
-          return page
-        else
-          page = block.call
-          Cache.store(key, page, :expires_in => 3600)
-        end
-        page
-      rescue
-        block.call
-      end
-    end
-    
     def cdata(&block)
       text = capture_haml(&block)
       text.gsub!("\n", "\n  ")

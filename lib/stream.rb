@@ -1,19 +1,20 @@
-begin
-  Smoke.configure do |c|
-    c[:cache][:enabled] = true
-    c[:cache][:store] = :memcache
-    c[:cache][:options] = {
-      :server     => ENV['MEMCACHE_SERVERS'].split(','), 
-      :namespace  => ENV['MEMCACHE_NAMESPACE'],
-      :expire_in => 1800
-    }
-  end
-rescue
+#begin
+#  Smoke.configure do |c|
+#    c[:cache][:enabled] = true
+#    c[:cache][:store] = :memcache
+#    c[:cache][:options] = {
+#      :server     => ENV['MEMCACHE_SERVERS'].split(','), 
+#      :namespace  => ENV['MEMCACHE_NAMESPACE'],
+#      :expire_in => 1800
+#    }
+#  end
+#rescue
   Smoke.configure do |c|
     c[:cache][:enabled] = true
     c[:cache][:store] = :memory
-  end
-end
+    c[:cache][:expire_in] => 1800
+  end 
+#end
 
 require 'digest/sha1'
 

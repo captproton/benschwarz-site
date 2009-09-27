@@ -3,4 +3,4 @@
   %ul
     - for link in links
       %li
-        %a{:href => link.link}= link.description
+        %a{:href => link.link}= (link.description||link.title)

@@ -4,4 +4,4 @@ simple-rss --version "1.2"
 crack --version "0.1.1"
 haml --version "2.0.9"
 benschwarz-moneta --source gems.github.com
-smoke --version "= 0.5.12" --source gemcutter.org
+smoke --version "= 0.5.12" --source gemcutter.org 

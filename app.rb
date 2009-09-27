@@ -61,6 +61,11 @@ module Germanforblack
       haml :about
     end
 
+    get '/clear-cache' do
+      Smoke::Cache.clear!
+      "Done"
+    end
+
     not_found do
       haml :not_found, {:layout => :plain}
     end

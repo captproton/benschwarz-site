@@ -12,7 +12,7 @@
   Smoke.configure do |c|
     c[:cache][:enabled] = true
     c[:cache][:store] = :memory
-    c[:cache][:expire_in] => 1800
+    c[:cache][:expire_in] = 1800
   end 
 #end
 

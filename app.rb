@@ -7,7 +7,7 @@ require 'json'
 require 'crack'
 require 'moneta'
 require 'haml'
-gem 'smoke', '0.5.12'
+gem 'smoke', '0.5.13'
 require 'smoke'
 
 %w(helpers stream article haml-filter).each{|r| require "#{__DIR__}/lib/#{r}" }

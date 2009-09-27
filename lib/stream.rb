@@ -1,5 +1,4 @@
 begin
-  Smoke.log.info "Using memcache cache store"
   Smoke.configure do |c|
     c[:cache][:enabled] = true
     c[:cache][:store] = :memcache
@@ -10,7 +9,6 @@ begin
     }
   end
 rescue
-  Smoke.log.info "Using memory cache store"
   Smoke.configure do |c|
     c[:cache][:enabled] = true
     c[:cache][:store] = :memory

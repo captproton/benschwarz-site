@@ -1,7 +1,8 @@
 #events.vevent.column.three
   %h4 Upcoming events
   %p
-    %a{:href => event[:ticket_url], :class => "url summary"} 
+    - url = event[:ticket_url].empty? ? "http://upcoming.yahoo.com/event/#{event[:id]}/" : event[:ticket_url]
+    %a{:href => url, :class => "url summary"} 
       = "#{event[:name]} - #{event[:venue_city]}, #{event[:venue_country_name]}"
     %span.description
       = event[:description]

@@ -1,8 +1,9 @@
 - begin
+  - presentations = Smoke[:slideshare].output
   #presentations.column.two
     %h2 Presentations
     %ul
-      - for presentation in Smoke[:slideshare].output
+      - for presentation in presentations
         %li
           %a{:href => presentation[:URL]}
             %img{:src => presentation[:ThumbnailSmallURL]}

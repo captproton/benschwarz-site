@@ -1,7 +1,10 @@
-#presentations.column.two
-  %h2 Presentations
-  %ul
-    - for presentation in presentations
-      %li
-        %a{:href => presentation[:URL]}
-          %img{:src => presentation[:ThumbnailSmallURL]}
+- begin
+  #presentations.column.two
+    %h2 Presentations
+    %ul
+      - for presentation in Smoke[:slideshare].output
+        %li
+          %a{:href => presentation[:URL]}
+            %img{:src => presentation[:ThumbnailSmallURL]}
+- rescue
+  

@@ -55,4 +55,4 @@ table {
 
 
 /* Makes HTML5 structural elements structural */
-article, aside, footer, header, nav, section {display: block;}
+article, aside, footer, header, nav, section { display: block; }

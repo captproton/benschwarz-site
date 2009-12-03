@@ -3,5 +3,5 @@
   %ul
     - for presentation in presentations
       %li
-        %a{:href => presentation[:URL]}
+        %a{:href => presentation[:URL], :rel => "external"}
           %img{:src => presentation[:ThumbnailSmallURL]}

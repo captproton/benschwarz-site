@@ -3,4 +3,4 @@
   %ul
     - for link in links
       %li
-        %a{:href => link.link}= (link.description||link.title)
+        %a{:href => link.link, :rel => "external"}= (link.description||link.title)

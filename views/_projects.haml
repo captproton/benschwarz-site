@@ -3,4 +3,4 @@
   %ul.bullet
     - for project in projects
       %li
-        %a{:href => project[:url]}= project[:name]
+        %a{:href => project[:url], :rel => "external"}= project[:name]

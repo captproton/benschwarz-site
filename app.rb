@@ -28,7 +28,6 @@ module Germanforblack
       @image = Smoke[:flickr].output.sort_by{rand}.first
       @links = Smoke[:delicious].output
       @projects = Smoke[:github].output
-      @presentations = Smoke[:slideshare].output
       @articles = Article.all.sort[0..1]
       
       haml :index

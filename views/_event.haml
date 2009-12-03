@@ -1,2 +1,7 @@
 #events.vevent.column.three
-  
+  %h4 Upcoming events
+  %p
+    %a{:href => event[:ticket_url], :class => "url summary", :rel => "external"} 
+      = "#{event[:name]} - #{event[:venue_city]}, #{event[:venue_country_name]}"
+    %span.description
+      = event[:description]

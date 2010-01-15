@@ -3,7 +3,7 @@ body { font-family: Georgia; }
 img { display: block; }
 .fakecaps { font-size: 50%; text-transform: uppercase; font-variant: small-caps; vertical-align: text-top; }
 
-header { display: block; margin-left: 40px; margin-bottom: 65px; }
+header { display: block; margin-left: 40px; margin-bottom: 65px; text-shadow: white 1px 1px 1px; }
 h1 { font-size: 2em; font-weight: normal; font-style: italic; color: #FF3300; line-height: 1.8em;  }
 h1 a { background-color: #FF3300; text-decoration: underline; color: white; }
 h2 { color: #FF3300; font-size: 1.1em; font-weight: normal; margin-bottom: 30px; }

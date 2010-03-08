@@ -1,14 +1,10 @@
 __DIR__ = File.dirname(__FILE__)
 
 require 'lib/core_ext/enumerable'
-require 'sinatra'
-require 'rdiscount'
-require 'json'
-require 'crack'
-require 'moneta'
-require 'haml'
-gem 'smoke', '0.5.13'
-require 'smoke'
+require 'ftools'
+
+require '.bundle/environment'
+Bundler.require
 
 %w(helpers stream article haml-filter).each{|r| require "#{__DIR__}/lib/#{r}" }
 Article.path = "#{__DIR__}/articles"
@@ -56,6 +52,17 @@ module Germanforblack
     get '/clear-cache' do
       Smoke::Cache.clear!
       "Done"
+    end
+    
+    get '/css/*' do
+      begin
+        content_type 'text/css'
+        response["Expires"] = (Time.now + 60*60*24*356*3).httpdate # Cache for 3 years
+        Tilt.new("#{File.dirname(__FILE__)}/public/css/#{File.basename(params[:splat].join, ".*")}.less").render
+      rescue Errno::ENOENT
+        content_type 'text/html'
+        not_found
+      end
     end
 
     not_found do

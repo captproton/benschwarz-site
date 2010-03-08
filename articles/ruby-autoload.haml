@@ -1,0 +1,22 @@
+-# title: Ruby autoloading
+-# published: 2010-02-08
+-# excerpt: How and why I overrode Kernel.autoload
+-# keywords: ruby, rubygems, autoload, code, gist, kernel, monkey-patch
+
+.column.six
+  :smartypants
+    Recently, I wrote [transcoder](http://github.com/benschwarz/transcoder) as a means of parsing common web formats (`json`, `xml`, `rss/atom` anyone?) without being too concerned about what a web service or API was returning to you. 
+    
+    I pushed out 0.1.0 hastly and went for [sake](http://twitpic.com/16xkt6), glorious, comfortable sake. I knew however, that something wasn't quite right.
+    
+    When transcoder was required' it would bring in all of its dependencies, so if you were only hoping to parse a `yaml` file, you got everything: json, xml and rss. Not good, too much.
+    
+    ## Ruby's autoload
+    Autoload is a Ruby kernel method, you give it a constant and a filepath, when the constant is found to be undefined, it attempts to load the filepath. 
+    Fantastic right? Well, sadly. No.
+    
+    Autoload will only load from your `$LOAD_PATH`, so I decided to [roll up my sleeves](http://gist.github.com/324367).
+    Now, I'm sure that overriding `Object` is pretty much a no-no in nearly every circumstance, but `Kernel` as well? [Ludacris](http://en.wikipedia.org/wiki/Ludacris)!
+    
+    ## In closing
+    No matter how [bat-shit-crazy](http://www.urbandictionary.com/define.php?term=bat-shit+crazy) you might think this hack is, its actually very awesome. Thats all I have to say.

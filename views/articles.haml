@@ -5,16 +5,16 @@
       %h1 An archive of articles
       %span.attribution written by Ben Schwarz
   %section#content
-    %dl
+    %dl.article-list
       - @articles.group_by{|a| a.published.year }.each do |year, articles|
-        %dt.one
+        %dt
           = year
         %dd
           - articles.group_by{|a| a.published.month}.each do |month, articles|
             %dl
-              %dt.one= articles.first.published.strftime('%B')
+              %dt= articles.first.published.strftime('%B')
               - for article in articles
-                %dd.six
+                %dd
                   %h3
                     %a{:href => article_path(article)}= article.title
                   %p= article.excerpt

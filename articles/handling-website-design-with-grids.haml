@@ -1,0 +1,79 @@
+-# title: Web design with grids
+-# published: 2010-03-17
+-# excerpt: The technique that I've been using to work on page layouts
+-# keywords: web, design, grid, website, development, coding, layout, css, lesscss
+
+.column.eight
+  :smartypants
+    If you've ever at all worked as a designer or peeked into the world of typography you probably realise that "grids" are used to structure content. 
+    
+    Interestingly, working with grids (on the web) has only really come to popularity over the last few years. This is thanks to the work of people like [Mark Boulton](http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-designing-grid-systems-part-1), [Khoi Vinh](http://www.subtraction.com/2007/03/18/oh-yeeaahh) and [Garrett Dimon](http://www.digital-web.com/articles/redesigning_ebay_registration/) and, I must say it has certainly helped me begin to grasp information architecture far better. 
+    
+    In 2009 [Tim Lucas](http://toolmantim.com) kept a sneaky easter egg in the Web Directions South ["Tweeps" mini-site.](http://wds09.tweeps.webdirections.org/) 
+    Basically, files named `h-grid-12.png`, `h-grid-6.png` and `h-grid-1.png` could be displayed using a secret modifier code (Its `Shift+H`, sorry Tim.)
+    
+    [![Screenshot of the Tweeps site](http://img.skitch.com/20100317-bnihqheathcgxd3jqubdft52ju.jpg "The grid on tweeps")](http://wds09.tweeps.webdirections.org/)
+    
+    People, including myself are building sites using grids. Now it seems to me that when you're designing in a browser† you want to be able to follow the grid's principals all the way through the process. 
+    
+    ## Getting practical
+    When I first built my own web site (the one you're looking at now) I used the following CSS technique, you won't see it in action now though (I've moved on to the latter solution).
+      
+        .col { float: left; margin-right: 20px; }
+    
+    This sets an element to sit alongside any neighbouring floated element, in order of HTML appearence.
+
+    The element that sits in your last horizontal column probably doesn't need a right margin, for that I used `.col:last-child { margin-right: 0; }`
+    
+    Now while this is all very well and good, you'll need to set some widths to get the columns filling out. 
+    
+        .one    { width: 100px; }
+        .two    { width: 160px; }
+        .three  { width: 220px; }
+        .four   { width: 340px; }
+        .five   { width: 400px; }
+        .six    { width: 460px; }
+        .seven  { width: 520px; }
+        .eight  { width: 580px; }
+    
+    To apply grid widths to the design, I went through and added classes to my markup:
+    
+        <article class="col eight">
+        
+    This technique works pretty well, infact I really like that you can jump into an element inspector (Webkit or Firebug) and change a column width to see how your content might better flow if it were arranged differently. 
+    
+    ![Screen shot of webkit's element inspector](http://img.skitch.com/20100317-pdeqdwuq16w1ce34tsh5ghkgd.jpg "Element inspector")
+    
+    ## Criticisms
+    Now, this provides a pretty blissful working environment. Its simple and pretty quick to get started. (Also, we're not doing anything scary in CSS to achieve this) I really feel that I can do better than this. I've never been a fan of littering your markup with no-meaning class names. 
+    
+    This is also the very same rationale that prevents me from using a framework like [Blueprint CSS](http://www.blueprintcss.org/). Most of the blueprint users that I've come across say "its easy to comprehend, I can get a reasonable looking design quickly &mdash; and without a designer."
+    
+    ## Doing better
+    People who know me might already know that one of my biggest qualms with abstractions is that they prevent people from understanding the code or process that they're abstracting. I feel very different about [LessCSS](http://lesscss.org/) &mdash; It uses real css, with some smart extensions. 
+    
+    So, my aim is to keep my HTML clean, semantically correct and reduce additional of strictly presentational classes. 
+    
+    LessCSS provides some basic mathematical and "mixin" features (Amongst some others). These are run through an engine that returns good old regular css, it basically means that you get to write in a more powerful manner, producing wonderful machine-readable CSS. 
+    
+    ### Time for a deep breath!
+    
+        .column (@width: 0) { width: 100px + (60 * @width); float: left; margin-right: 20px; }
+        
+    This wonderfully powerful line of Less is a "mixin", it means that I can "drop in" this style to another element selector.
+    
+        article { .column(8); }
+    
+    My articles will be exactly 8 columns wide, it'll also handle the gutters! 
+    
+    Whats more is that there is also a default in there (the `@width: 0`) so if I wanted to set a selector to be a single column wide, I could use `.column;` and thats it! 
+    
+    Thankfully I can also be selective about elements that sit within the last column. Less is smart and won't include the gutter (`width-right: 20px;`) when I do something like: 
+    
+        .selector { .column; margin-right: 0; }
+        
+    For now, this is how I'm going to run. I still find it fast for layouts and easy to manipulate.
+    
+.column.one.note
+  :smartypants
+    † Desiging in the browser, made famous by [Andy Clarke](http://www.stuffandnonsense.co.uk/).

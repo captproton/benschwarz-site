@@ -16,6 +16,12 @@ module Germanforblack
     set :haml, {:format => :html5, :attr_wrapper => '"'}
     enable :static
     
+    configure :production do
+      ENV['APP_ROOT'] ||= File.dirname(__FILE__)
+      $:.unshift "#{ENV['APP_ROOT']}/vendor/plugins/newrelic_rpm/lib"
+      require 'newrelic_rpm'
+    end
+    
     helpers do
       include Helpers
     end

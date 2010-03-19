@@ -73,4 +73,4 @@ module Germanforblack
       haml :application_errors, {:layout => :plain}
     end
   end
-end
+end 

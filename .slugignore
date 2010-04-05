@@ -1,4 +1,6 @@
 *.psd
 *.pdf
+*.ai
 test
 spec
+vendor/cache

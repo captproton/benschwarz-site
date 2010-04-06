@@ -1,7 +1,7 @@
 # DO NOT MODIFY THIS FILE
 
 require 'digest/sha1'
-require "rubygems"
+require 'rubygems'
 
 module Gem
   class Dependency
@@ -131,7 +131,9 @@ module Bundler
           exec_name = spec.default_executable or raise Gem::Exception, "no default executable for #{spec.full_name}"
         end
 
-        File.join(spec.full_gem_path, spec.bindir, exec_name)
+        gem_bin = File.join(spec.full_gem_path, spec.bindir, exec_name)
+        gem_from_path_bin = File.join(File.dirname(spec.loaded_from), spec.bindir, exec_name)
+        File.exist?(gem_bin) ? gem_bin : gem_from_path_bin
       end
     end
 
@@ -140,39 +142,53 @@ module Bundler
 end
 
 module Bundler
-  LOCKED_BY    = '0.9.9'
+  LOCKED_BY    = '0.9.13'
   FINGERPRINT  = "94333e9a8c4a42b9eadf3e579e533c649f1e310b"
-  AUTOREQUIRES = {:default=>[["rdiscount", true], ["thin", false], ["less", true], ["haml", true], ["tilt", true], ["sinatra/base", true], ["smoke", true]]}
+  AUTOREQUIRES = {:default=>[["haml", true], ["less", true], ["rdiscount", true], ["sinatra/base", true], ["smoke", true], ["thin", false], ["tilt", true]]}
   SPECS        = [
-        {:loaded_from=>"/Users/ben/.gem/ruby/1.8/specifications/nokogiri-1.3.2.gemspec", :load_paths=>["/Users/ben/.gem/ruby/1.8/gems/nokogiri-1.3.2/lib", "/Users/ben/.gem/ruby/1.8/gems/nokogiri-1.3.2/ext"]},
-        {:loaded_from=>"/Users/ben/.bundle/ruby/1.8/specifications/rdiscount-1.6.3.gemspec", :load_paths=>["/Users/ben/.bundle/ruby/1.8/gems/rdiscount-1.6.3/lib"]},
-        {:loaded_from=>"/Library/Ruby/Gems/1.8/specifications/daemons-1.0.10.gemspec", :load_paths=>["/Library/Ruby/Gems/1.8/gems/daemons-1.0.10/lib"]},
-        {:loaded_from=>"/Users/ben/.gem/ruby/1.8/specifications/registry-0.1.2.gemspec", :load_paths=>["/Users/ben/.gem/ruby/1.8/gems/registry-0.1.2/lib"]},
-        {:loaded_from=>"/Users/ben/.bundle/ruby/1.8/specifications/eventmachine-0.12.10.gemspec", :load_paths=>["/Users/ben/.bundle/ruby/1.8/gems/eventmachine-0.12.10/lib"]},
-        {:loaded_from=>"/Library/Ruby/Gems/1.8/specifications/rest-client-1.0.3.gemspec", :load_paths=>["/Library/Ruby/Gems/1.8/gems/rest-client-1.0.3/lib"]},
-        {:loaded_from=>"/Library/Ruby/Gems/1.8/specifications/moneta-0.6.0.gemspec", :load_paths=>["/Library/Ruby/Gems/1.8/gems/moneta-0.6.0/lib"]},
-        {:loaded_from=>"/Users/ben/.bundle/ruby/1.8/specifications/json-1.2.3.gemspec", :load_paths=>["/Users/ben/.bundle/ruby/1.8/gems/json-1.2.3/ext/json/ext", "/Users/ben/.bundle/ruby/1.8/gems/json-1.2.3/ext", "/Users/ben/.bundle/ruby/1.8/gems/json-1.2.3/lib"]},
-        {:loaded_from=>"/Users/ben/.gem/ruby/1.8/specifications/rack-1.1.0.gemspec", :load_paths=>["/Users/ben/.gem/ruby/1.8/gems/rack-1.1.0/lib"]},
-        {:loaded_from=>"/Users/ben/.bundle/ruby/1.8/specifications/thin-1.2.7.gemspec", :load_paths=>["/Users/ben/.bundle/ruby/1.8/gems/thin-1.2.7/lib"]},
-        {:loaded_from=>"/Library/Ruby/Gems/1.8/specifications/simple-rss-1.2.gemspec", :load_paths=>["/Library/Ruby/Gems/1.8/gems/simple-rss-1.2/lib"]},
-        {:loaded_from=>"/Users/ben/.bundle/ruby/1.8/specifications/crack-0.1.7.gemspec", :load_paths=>["/Users/ben/.bundle/ruby/1.8/gems/crack-0.1.7/lib"]},
-        {:loaded_from=>"/Users/ben/.bundle/ruby/1.8/specifications/mutter-0.5.3.gemspec", :load_paths=>["/Users/ben/.bundle/ruby/1.8/gems/mutter-0.5.3/lib"]},
-        {:loaded_from=>"/Users/ben/.gem/ruby/1.8/specifications/polyglot-0.3.1.gemspec", :load_paths=>["/Users/ben/.gem/ruby/1.8/gems/polyglot-0.3.1/lib"]},
-        {:loaded_from=>"/Users/ben/.bundle/ruby/1.8/specifications/treetop-1.4.5.gemspec", :load_paths=>["/Users/ben/.bundle/ruby/1.8/gems/treetop-1.4.5/lib"]},
-        {:loaded_from=>"/Users/ben/.bundle/ruby/1.8/specifications/less-1.2.21.gemspec", :load_paths=>["/Users/ben/.bundle/ruby/1.8/gems/less-1.2.21/lib"]},
-        {:loaded_from=>"/Users/ben/.bundle/ruby/1.8/specifications/haml-2.2.22.gemspec", :load_paths=>["/Users/ben/.bundle/ruby/1.8/gems/haml-2.2.22/lib"]},
-        {:loaded_from=>"/Users/ben/.gem/ruby/1.8/specifications/tilt-0.8.gemspec", :load_paths=>["/Users/ben/.gem/ruby/1.8/gems/tilt-0.8/lib"]},
-        {:loaded_from=>"/Users/ben/.bundle/ruby/1.8/specifications/sinatra-1.0.gemspec", :load_paths=>["/Users/ben/.bundle/ruby/1.8/gems/sinatra-1.0/lib"]},
-        {:loaded_from=>"/Users/ben/.bundle/ruby/1.8/specifications/fastercsv-1.5.3.gemspec", :load_paths=>["/Users/ben/.bundle/ruby/1.8/gems/fastercsv-1.5.3/lib"]},
-        {:loaded_from=>"/Users/ben/.bundle/ruby/1.8/specifications/smoke-0.5.20.gemspec", :load_paths=>["/Users/ben/.bundle/ruby/1.8/gems/smoke-0.5.20/lib"]},
+        {:load_paths=>["/Users/ben/.bundle/ruby/1.8/gems/crack-0.1.7/lib"], :loaded_from=>"/Users/ben/.bundle/ruby/1.8/specifications/crack-0.1.7.gemspec", :name=>"crack"},
+        {:load_paths=>["/Users/ben/.gem/ruby/1.8/gems/daemons-1.0.10/lib"], :loaded_from=>"/Users/ben/.gem/ruby/1.8/specifications/daemons-1.0.10.gemspec", :name=>"daemons"},
+        {:load_paths=>["/Users/ben/.gem/ruby/1.8/gems/eventmachine-0.12.10/lib"], :loaded_from=>"/Users/ben/.gem/ruby/1.8/specifications/eventmachine-0.12.10.gemspec", :name=>"eventmachine"},
+        {:load_paths=>["/Users/ben/.bundle/ruby/1.8/gems/fastercsv-1.5.3/lib"], :loaded_from=>"/Users/ben/.bundle/ruby/1.8/specifications/fastercsv-1.5.3.gemspec", :name=>"fastercsv"},
+        {:load_paths=>["/Users/ben/.bundle/ruby/1.8/gems/haml-2.2.22/lib"], :loaded_from=>"/Users/ben/.bundle/ruby/1.8/specifications/haml-2.2.22.gemspec", :name=>"haml"},
+        {:load_paths=>["/Users/ben/.bundle/ruby/1.8/gems/json-1.2.3/ext/json/ext", "/Users/ben/.bundle/ruby/1.8/gems/json-1.2.3/ext", "/Users/ben/.bundle/ruby/1.8/gems/json-1.2.3/lib"], :loaded_from=>"/Users/ben/.bundle/ruby/1.8/specifications/json-1.2.3.gemspec", :name=>"json"},
+        {:load_paths=>["/Users/ben/.bundle/ruby/1.8/gems/mutter-0.5.3/lib"], :loaded_from=>"/Users/ben/.bundle/ruby/1.8/specifications/mutter-0.5.3.gemspec", :name=>"mutter"},
+        {:load_paths=>["/Users/ben/.bundle/ruby/1.8/gems/polyglot-0.3.1/lib"], :loaded_from=>"/Users/ben/.bundle/ruby/1.8/specifications/polyglot-0.3.1.gemspec", :name=>"polyglot"},
+        {:load_paths=>["/Users/ben/.bundle/ruby/1.8/gems/treetop-1.4.5/lib"], :loaded_from=>"/Users/ben/.bundle/ruby/1.8/specifications/treetop-1.4.5.gemspec", :name=>"treetop"},
+        {:load_paths=>["/Users/ben/.bundle/ruby/1.8/gems/less-1.2.21/lib"], :loaded_from=>"/Users/ben/.bundle/ruby/1.8/specifications/less-1.2.21.gemspec", :name=>"less"},
+        {:load_paths=>["/Users/ben/.gem/ruby/1.8/gems/moneta-0.6.0/lib"], :loaded_from=>"/Users/ben/.gem/ruby/1.8/specifications/moneta-0.6.0.gemspec", :name=>"moneta"},
+        {:load_paths=>["/Users/ben/.gem/ruby/1.8/gems/nokogiri-1.3.2/lib", "/Users/ben/.gem/ruby/1.8/gems/nokogiri-1.3.2/ext"], :loaded_from=>"/Users/ben/.gem/ruby/1.8/specifications/nokogiri-1.3.2.gemspec", :name=>"nokogiri"},
+        {:load_paths=>["/Users/ben/.gem/ruby/1.8/gems/rack-1.1.0/lib"], :loaded_from=>"/Users/ben/.gem/ruby/1.8/specifications/rack-1.1.0.gemspec", :name=>"rack"},
+        {:load_paths=>["/Users/ben/.bundle/ruby/1.8/gems/rdiscount-1.6.3/lib"], :loaded_from=>"/Users/ben/.bundle/ruby/1.8/specifications/rdiscount-1.6.3.gemspec", :name=>"rdiscount"},
+        {:load_paths=>["/Users/ben/.gem/ruby/1.8/gems/registry-0.1.2/lib"], :loaded_from=>"/Users/ben/.gem/ruby/1.8/specifications/registry-0.1.2.gemspec", :name=>"registry"},
+        {:load_paths=>["/Users/ben/.gem/ruby/1.8/gems/rest-client-1.0.3/lib"], :loaded_from=>"/Users/ben/.gem/ruby/1.8/specifications/rest-client-1.0.3.gemspec", :name=>"rest-client"},
+        {:load_paths=>["/Users/ben/.gem/ruby/1.8/gems/simple-rss-1.2/lib"], :loaded_from=>"/Users/ben/.gem/ruby/1.8/specifications/simple-rss-1.2.gemspec", :name=>"simple-rss"},
+        {:load_paths=>["/Users/ben/.gem/ruby/1.8/gems/sinatra-1.0/lib"], :loaded_from=>"/Users/ben/.gem/ruby/1.8/specifications/sinatra-1.0.gemspec", :name=>"sinatra"},
+        {:load_paths=>["/Users/ben/.gem/ruby/1.8/gems/smoke-0.5.20/lib"], :loaded_from=>"/Users/ben/.gem/ruby/1.8/specifications/smoke-0.5.20.gemspec", :name=>"smoke"},
+        {:load_paths=>["/Users/ben/.bundle/ruby/1.8/gems/thin-1.2.7/lib"], :loaded_from=>"/Users/ben/.bundle/ruby/1.8/specifications/thin-1.2.7.gemspec", :name=>"thin"},
+        {:load_paths=>["/Users/ben/.gem/ruby/1.8/gems/tilt-0.8/lib"], :loaded_from=>"/Users/ben/.gem/ruby/1.8/specifications/tilt-0.8.gemspec", :name=>"tilt"},
       ].map do |hash|
-    spec = eval(File.read(hash[:loaded_from]), binding, hash[:loaded_from])
+    if hash[:virtual_spec]
+      spec = eval(hash[:virtual_spec], binding, "<virtual spec for '#{hash[:name]}'>")
+    else
+      dir = File.dirname(hash[:loaded_from])
+      spec = Dir.chdir(dir){ eval(File.read(hash[:loaded_from]), binding, hash[:loaded_from]) }
+    end
     spec.loaded_from = hash[:loaded_from]
     spec.require_paths = hash[:load_paths]
     spec
   end
 
   extend SharedHelpers
+
+  def self.configure_gem_path_and_home(specs)
+    # Fix paths, so that Gem.source_index and such will work
+    paths = specs.map{|s| s.installation_path }
+    paths.flatten!; paths.compact!; paths.uniq!; paths.reject!{|p| p.empty? }
+    ENV['GEM_PATH'] = paths.join(File::PATH_SEPARATOR)
+    ENV['GEM_HOME'] = paths.first
+    Gem.clear_paths
+  end
 
   def self.match_fingerprint
     print = Digest::SHA1.hexdigest(File.read(File.expand_path('../../Gemfile', __FILE__)))
@@ -185,6 +201,7 @@ module Bundler
     match_fingerprint
     clean_load_path
     cripple_rubygems(SPECS)
+    configure_gem_path_and_home(SPECS)
     SPECS.each do |spec|
       Gem.loaded_specs[spec.name] = spec
       $LOAD_PATH.unshift(*spec.require_paths)
@@ -194,7 +211,7 @@ module Bundler
   def self.require(*groups)
     groups = [:default] if groups.empty?
     groups.each do |group|
-      (AUTOREQUIRES[group] || []).each do |file, explicit|
+      (AUTOREQUIRES[group.to_sym] || []).each do |file, explicit|
         if explicit
           Kernel.require file
         else

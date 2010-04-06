@@ -23,7 +23,7 @@ section#content p { margin: 0 0 1em 0; }
 section#content ul { clear: both; margin-bottom: 2em; }
 section#content .articles .source { text-align: right; }
 
-.column (@width: 0) { width: 100px + (60 * @width); float: left; margin-right: 20px; }
+.column (@width: 1) { width: 40px + (60 * @width); float: left; margin-right: 20px; }
 
 /* keep for older markup (article pages) */
 .column { float: left; margin-right: 20px; }
@@ -55,22 +55,23 @@ section#content li,
 section#content a,
 section#content p { color: #333333; }
 
-#recently { .column(4); }
+#recently { .column(5); }
 #links { 
-	.column(2);
+	.column(3);
 	
 	ul li { margin-bottom: 1em; } 
 }
-#projects, #presentations { .column; }
+#projects { .column; }
+#presentations { .column; }
 
 .article-list dt { .column(1); float: none; }
 .article-list dd dl dd { .column(6); float: none; }
 
 section.about {
-	#personal { .column(8); }
-	section.bio { .column(4); margin-top: 2em; }
-	section.colophon { .column(1); margin-top: 2em; }
-	section#special-projects { color: #666; margin-bottom: 115px; .column(3); }
+	#personal { .column(9); }
+	section.bio { .column(5); margin-top: 2em; }
+	section.colophon { .column(2); margin-top: 2em; }
+	section#special-projects { color: #666; margin-bottom: 115px; .column(4); }
 }
 
 section#footer { line-height: 1.1em; background-color: black; overflow: hidden; margin-top: 40px; padding-bottom: 25px; }
@@ -80,13 +81,13 @@ section#footer p,
 section#footer li { color: #CCC; font-size: 0.8em; }
 section#footer a { color: #FF3300; }
 
-section#footer #about { .column(4); }
+section#footer #about { .column(5); }
 section#footer #about img { float: left; margin: 0 0 4px -5px; }
 section#footer #events { .column(3); }
-section#footer #elsewhere { .column(4); }
+section#footer #elsewhere { .column; }
 section#footer #elsewhere ul { margin-left: -0.5em; }
 section#footer #elsewhere li:before { color: #666; }
-section#footer #cc { .column(1); }
+section#footer #cc { .column(2); margin-right: 0; }
 section#footer #cc h4 { background: no-repeat url("/images/cc.png"); text-indent: -9999px; height: 26px; margin-bottom: 18px; }
 
 section#footer span.source { color: #666; }

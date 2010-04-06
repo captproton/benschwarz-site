@@ -31,17 +31,20 @@ module Germanforblack
       @links = Smoke[:delicious].output
       @projects = Smoke[:github].output
       @articles = Article.all.sort[0..1]
+      @event = Smoke[:upcoming].output.first
       
-      haml :index
+      haml :index, {:layout => :layout}
     end
     
     get '/articles/:id' do
       @article = Article[params[:id]] || raise(Sinatra::NotFound)
+      @event = Smoke[:upcoming].output.first
       haml :article, {:layout => :inner_layout}
     end
 
     get '/articles' do
       @articles = Article.all.sort
+      @event = Smoke[:upcoming].output.first
       haml :articles
     end
 
@@ -52,6 +55,7 @@ module Germanforblack
     end
     
     get '/about' do
+      @event = Smoke[:upcoming].output.first
       haml :about
     end
 
